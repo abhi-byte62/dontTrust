@@ -1,4 +1,4 @@
-import { Hasher } from '@aegisscan/common';
+import { Hasher } from '@donttrust/common';
 
 export interface MetricCounter {
   name: string;

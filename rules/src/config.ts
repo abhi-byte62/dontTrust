@@ -2,8 +2,8 @@ import {
   SecurityRule,
   RuleMetadata,
   DetectionContext
-} from '@aegisscan/scanner-sdk';
-import { FindingRecord } from '@aegisscan/finding-schema';
+} from '@donttrust/scanner-sdk';
+import { FindingRecord } from '@donttrust/finding-schema';
 
 export class DebugEndpointExposureRule extends SecurityRule {
   readonly metadata: RuleMetadata = {

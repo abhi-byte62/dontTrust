@@ -1,5 +1,5 @@
 {
-  "name": "@aegisscan/rules",
+  "name": "@donttrust/rules",
   "version": "1.0.0",
   "type": "module",
   "main": "./src/index.ts",
@@ -16,10 +16,10 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@aegisscan/common": "*",
-    "@aegisscan/finding-schema": "*",
-    "@aegisscan/protocol-models": "*",
-    "@aegisscan/scanner-sdk": "*",
-    "@aegisscan/scope-engine": "*"
+    "@donttrust/common": "*",
+    "@donttrust/finding-schema": "*",
+    "@donttrust/protocol-models": "*",
+    "@donttrust/scanner-sdk": "*",
+    "@donttrust/scope-engine": "*"
   }
 }

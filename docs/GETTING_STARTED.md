@@ -18,7 +18,7 @@ npm run build
 Start the intentionally vulnerable target lab:
 
 ```bash
-npm run start -w @aegisscan/vulnerable-lab
+npm run start -w @donttrust/vulnerable-lab
 # Runs on http://127.0.0.1:8080
 ```
 
@@ -27,8 +27,8 @@ npm run start -w @aegisscan/vulnerable-lab
 In a new terminal:
 
 ```bash
-npm run dev -w @aegisscan/api
-npm run dev -w @aegisscan/web
+npm run dev -w @donttrust/api
+npm run dev -w @donttrust/web
 ```
 
 Open your browser at `http://localhost:5173` to explore the attack surface graph and scan controls.

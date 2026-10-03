@@ -1,11 +1,11 @@
 import { store, ScanRecord, DiscoveredEndpointRecord } from './store.js';
-import { ScopeEngine } from '@aegisscan/scope-engine';
-import { RuleRegistry } from '@aegisscan/rules';
-import { Logger } from '@aegisscan/common';
-import { FindingRecord } from '@aegisscan/finding-schema';
-import { HttpRequestModel, HttpResponseModel } from '@aegisscan/protocol-models';
-import { CorrelationEngine } from '@aegisscan/correlation-engine';
-import { MetricsRegistry, Tracer } from '@aegisscan/observability';
+import { ScopeEngine } from '@donttrust/scope-engine';
+import { RuleRegistry } from '@donttrust/rules';
+import { Logger } from '@donttrust/common';
+import { FindingRecord } from '@donttrust/finding-schema';
+import { HttpRequestModel, HttpResponseModel } from '@donttrust/protocol-models';
+import { CorrelationEngine } from '@donttrust/correlation-engine';
+import { MetricsRegistry, Tracer } from '@donttrust/observability';
 import { ScanTaskPrioritizer } from './prioritizer.js';
 import { wsBroadcaster } from './ws.js';
 
@@ -65,7 +65,7 @@ export class ScanOrchestrator {
         url: scan.targetUrl,
         method: 'GET',
         headers: {
-          'User-Agent': 'AegisScan-Engine/1.0 (+https://github.com/aegisscan/engine)'
+          'User-Agent': 'DontTrust-Engine/1.0 (+https://github.com/donttrust/engine)'
         },
         timestamp: new Date().toISOString()
       };
@@ -106,7 +106,7 @@ export class ScanOrchestrator {
             'content-type': 'text/html; charset=utf-8',
             'server': 'Express/4.21.2'
           },
-          bodySnippet: '<html><head><title>Test App</title></head><body><h1>AegisScan Local Target</h1><a href="/api/v1/users">Users API</a><form action="/login" method="POST"><input name="username"/><input name="password"/></form></body></html>',
+          bodySnippet: '<html><head><title>Test App</title></head><body><h1>DontTrust Local Target</h1><a href="/api/v1/users">Users API</a><form action="/login" method="POST"><input name="username"/><input name="password"/></form></body></html>',
           bodyLength: 200,
           responseTimeMs: 15,
           timestamp: new Date().toISOString()
@@ -204,7 +204,7 @@ export class ScanOrchestrator {
           id: crypto.randomUUID(),
           url: ep.url,
           method: ep.method,
-          headers: { 'User-Agent': 'AegisScan-Engine/1.0' },
+          headers: { 'User-Agent': 'DontTrust-Engine/1.0' },
           timestamp: new Date().toISOString()
         };
 
@@ -267,7 +267,7 @@ export class ScanOrchestrator {
                 statusCode: 200,
                 statusText: 'OK',
                 headers: {
-                  'access-control-allow-origin': 'https://aegisscan-canary-test.invalid',
+                  'access-control-allow-origin': 'https://donttrust-canary-test.invalid',
                   'access-control-allow-credentials': 'true'
                 },
                 bodySnippet: 'verified',
@@ -365,7 +365,7 @@ export class ScanOrchestrator {
     // 1. JSON Report
     const jsonReport = JSON.stringify(
       {
-        aegisscan_version: '1.0.0',
+        donttrust_version: '1.0.0',
         scan_id: scan.id,
         project_id: scan.projectId,
         target_url: scan.targetUrl,
@@ -381,7 +381,7 @@ export class ScanOrchestrator {
 
     // 2. Markdown Report
     const mdLines = [
-      `# AegisScan Assessment Report: ${scan.targetUrl}`,
+      `# DontTrust Assessment Report: ${scan.targetUrl}`,
       `**Scan ID:** \`${scan.id}\` | **Profile:** \`${scan.profileName}\` | **Completed:** ${scan.completedAt}`,
       '',
       '## Executive Summary',
@@ -413,9 +413,9 @@ export class ScanOrchestrator {
           {
             tool: {
               driver: {
-                name: 'AegisScan',
+                name: 'DontTrust',
                 version: '1.0.0',
-                informationUri: 'https://github.com/aegisscan/engine',
+                informationUri: 'https://github.com/donttrust/engine',
                 rules: findings.map(f => ({
                   id: f.ruleId,
                   name: f.title,
@@ -449,7 +449,7 @@ export class ScanOrchestrator {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AegisScan Report - ${scan.targetUrl}</title>
+  <title>DontTrust Report - ${scan.targetUrl}</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #f8fafc; padding: 2rem; }
     .card { background: #1e293b; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #334155; }
@@ -462,7 +462,7 @@ export class ScanOrchestrator {
   </style>
 </head>
 <body>
-  <h1>AegisScan Assessment Report</h1>
+  <h1>DontTrust Assessment Report</h1>
   <div class="card">
     <p><strong>Target:</strong> ${scan.targetUrl} | <strong>Scan ID:</strong> ${scan.id} | <strong>Status:</strong> ${scan.status}</p>
     <p><strong>Findings Breakdown:</strong> Critical: ${scan.stats.findingsCount.critical}, High: ${scan.stats.findingsCount.high}, Medium: ${scan.stats.findingsCount.medium}, Low: ${scan.stats.findingsCount.low}</p>

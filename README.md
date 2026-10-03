@@ -103,12 +103,12 @@ npx vitest run tests/e2e tests/benchmark
 ### 3. Launch Local Demo Lab & API
 ```bash
 # Terminal 1: Start the vulnerable benchmark target
-npm run start -w @aegisscan/vulnerable-lab
+npm run start -w @donttrust/vulnerable-lab
 # Runs on http://127.0.0.1:8080
 
 # Terminal 2: Start API Gateway & React Dashboard
-npm run dev -w @aegisscan/api
-npm run dev -w @aegisscan/web
+npm run dev -w @donttrust/api
+npm run dev -w @donttrust/web
 ```
 Access the web dashboard at `http://localhost:5173`.
 

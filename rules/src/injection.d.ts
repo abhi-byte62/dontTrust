@@ -1,5 +1,5 @@
-import { SecurityRule, RuleMetadata, DetectionContext, VerificationContext, VerificationResult } from '@aegisscan/scanner-sdk';
-import { FindingRecord } from '@aegisscan/finding-schema';
+import { SecurityRule, RuleMetadata, DetectionContext, VerificationContext, VerificationResult } from '@donttrust/scanner-sdk';
+import { FindingRecord } from '@donttrust/finding-schema';
 export declare class SqlInjectionDetectionRule extends SecurityRule {
     readonly metadata: RuleMetadata;
     private static readonly SQL_ERRORS;

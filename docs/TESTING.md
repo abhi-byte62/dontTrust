@@ -1,6 +1,6 @@
-# AegisScan: Testing Strategy & Verification Framework
+# DontTrust: Testing Strategy & Verification Framework
 
-This document outlines the testing architecture, regression suites, and validation contracts enforced across the AegisScan platform.
+This document outlines the testing architecture, regression suites, and validation contracts enforced across the DontTrust platform.
 
 ---
 
@@ -24,14 +24,14 @@ This document outlines the testing architecture, regression suites, and validati
 ```
 
 1. **Unit Isolation Suites (`packages/*`, `services/*`, `rules/*`):**
-   - Cryptographic hashing & entropy secret redaction (`@aegisscan/common`)
-   - Bitwise IPv4/IPv6 CIDR range evaluations & SSRF defense (`@aegisscan/scope-engine`)
-   - Decoupled Severity & Confidence schema constraints (`@aegisscan/finding-schema`)
-   - Token-bucket rate limiting and P0-P4 priority queues (`@aegisscan/scanner-sdk`)
-   - Tri-gram Dice coefficient similarity and dynamic token stripping (`@aegisscan/differential-engine`)
-   - Deterministic deduplication & attack chain synthesis (`@aegisscan/correlation-engine`)
-   - Static DOM event parser & handler preservation (`@aegisscan/browser-worker`)
-   - Non-destructive canary exploit verifications (`@aegisscan/rules`)
+   - Cryptographic hashing & entropy secret redaction (`@donttrust/common`)
+   - Bitwise IPv4/IPv6 CIDR range evaluations & SSRF defense (`@donttrust/scope-engine`)
+   - Decoupled Severity & Confidence schema constraints (`@donttrust/finding-schema`)
+   - Token-bucket rate limiting and P0-P4 priority queues (`@donttrust/scanner-sdk`)
+   - Tri-gram Dice coefficient similarity and dynamic token stripping (`@donttrust/differential-engine`)
+   - Deterministic deduplication & attack chain synthesis (`@donttrust/correlation-engine`)
+   - Static DOM event parser & handler preservation (`@donttrust/browser-worker`)
+   - Non-destructive canary exploit verifications (`@donttrust/rules`)
 
 2. **Integration Suites (`apps/api`):**
    - REST API endpoints for project, target, scope, scan, findings, and graph management

@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { ScopeEngine } from '@aegisscan/scope-engine';
-import { SecretRedactor } from '@aegisscan/common';
+import { ScopeEngine } from '@donttrust/scope-engine';
+import { SecretRedactor } from '@donttrust/common';
 
-describe('AegisScan CLI Functionality', () => {
+describe('DontTrust CLI Functionality', () => {
   it('evaluates scope constraints correctly', () => {
     const scopeEngine = new ScopeEngine({
       allowedDomains: ['target.local'],

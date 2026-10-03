@@ -14,7 +14,7 @@ services:
 
   web:
     build: .
-    command: ["npm", "run", "dev", "-w", "@aegisscan/web", "--", "--host"]
+    command: ["npm", "run", "preview", "-w", "@donttrust/web", "--", "--host", "0.0.0.0", "--port", "5173"]
     ports:
       - "5173:5173"
     depends_on:
@@ -22,7 +22,7 @@ services:
 
   lab:
     build: .
-    command: ["npm", "run", "start", "-w", "@aegisscan/vulnerable-lab"]
+    command: ["npm", "run", "start", "-w", "@donttrust/vulnerable-lab"]
     ports:
       - "8080:8080"
 

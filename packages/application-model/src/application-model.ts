@@ -1,6 +1,6 @@
-import { Hasher } from '@aegisscan/common';
-import { TechnologyFingerprint, HttpMethod } from '@aegisscan/protocol-models';
-import { FindingRecord } from '@aegisscan/finding-schema';
+import { Hasher } from '@donttrust/common';
+import { TechnologyFingerprint, HttpMethod } from '@donttrust/protocol-models';
+import { FindingRecord } from '@donttrust/finding-schema';
 import {
   AppEndpoint,
   AppForm,

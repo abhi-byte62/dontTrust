@@ -1,4 +1,4 @@
-import { SecurityRule } from '@aegisscan/scanner-sdk';
+import { SecurityRule } from '@donttrust/scanner-sdk';
 export class DebugEndpointExposureRule extends SecurityRule {
     metadata = {
         id: 'debug-endpoint-exposure',

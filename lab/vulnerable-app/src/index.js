@@ -8,9 +8,9 @@ app.get('/', (_req, res) => {
     res.send(`
     <!DOCTYPE html>
     <html>
-      <head><title>AegisScan Vulnerable Lab</title></head>
+      <head><title>DontTrust Vulnerable Lab</title></head>
       <body>
-        <h1>AegisScan Local Target Application</h1>
+        <h1>DontTrust Local Target Application</h1>
         <p>Authorized laboratory environment for scanner rule validation.</p>
         <nav>
           <a href="/api/v1/users">Users API</a> |

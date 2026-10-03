@@ -1,4 +1,4 @@
-import { SecurityRule } from '@aegisscan/scanner-sdk';
+import { SecurityRule } from '@donttrust/scanner-sdk';
 export class MissingSecurityHeadersRule extends SecurityRule {
     metadata = {
         id: 'missing-security-headers',

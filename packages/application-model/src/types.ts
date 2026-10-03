@@ -1,5 +1,5 @@
-import { HttpMethod, TechnologyFingerprint } from '@aegisscan/protocol-models';
-import { Severity, Confidence, FindingCategory, FindingRecord } from '@aegisscan/finding-schema';
+import { HttpMethod, TechnologyFingerprint } from '@donttrust/protocol-models';
+import { Severity, Confidence, FindingCategory, FindingRecord } from '@donttrust/finding-schema';
 
 export type DiscoverySource =
   | 'RECON'

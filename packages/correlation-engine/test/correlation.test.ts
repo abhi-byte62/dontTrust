@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { CorrelationEngine } from '../src/index.js';
-import { FindingRecord } from '@aegisscan/finding-schema';
+import { FindingRecord } from '@donttrust/finding-schema';
 
 describe('CorrelationEngine', () => {
   const engine = new CorrelationEngine();

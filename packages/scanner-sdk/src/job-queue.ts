@@ -1,18 +1,18 @@
-import { Logger } from '@aegisscan/common';
+import { Logger } from '@donttrust/common';
 
 export type JobPriority = 'P0_CRITICAL' | 'P1_HIGH' | 'P2_NORMAL' | 'P3_LOW' | 'P4_BACKGROUND';
 
 export type QueueName =
-  | 'aegis.recon'
-  | 'aegis.crawl'
-  | 'aegis.browser'
-  | 'aegis.http-analysis'
-  | 'aegis.js-analysis'
-  | 'aegis.api-analysis'
-  | 'aegis.auth-analysis'
-  | 'aegis.verification'
-  | 'aegis.correlation'
-  | 'aegis.reporting';
+  | 'donttrust.recon'
+  | 'donttrust.crawl'
+  | 'donttrust.browser'
+  | 'donttrust.http-analysis'
+  | 'donttrust.js-analysis'
+  | 'donttrust.api-analysis'
+  | 'donttrust.auth-analysis'
+  | 'donttrust.verification'
+  | 'donttrust.correlation'
+  | 'donttrust.reporting';
 
 export interface JobEnvelope<T = Record<string, unknown>> {
   jobId: string;
@@ -45,16 +45,16 @@ export class JobBroker {
 
   private initQueues(): void {
     const queueNames: QueueName[] = [
-      'aegis.recon',
-      'aegis.crawl',
-      'aegis.browser',
-      'aegis.http-analysis',
-      'aegis.js-analysis',
-      'aegis.api-analysis',
-      'aegis.auth-analysis',
-      'aegis.verification',
-      'aegis.correlation',
-      'aegis.reporting'
+      'donttrust.recon',
+      'donttrust.crawl',
+      'donttrust.browser',
+      'donttrust.http-analysis',
+      'donttrust.js-analysis',
+      'donttrust.api-analysis',
+      'donttrust.auth-analysis',
+      'donttrust.verification',
+      'donttrust.correlation',
+      'donttrust.reporting'
     ];
     for (const q of queueNames) {
       this.queues.set(q, []);

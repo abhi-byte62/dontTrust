@@ -1,5 +1,5 @@
 -- ==========================================================
--- AegisScan Relational Database Schema & Migration v1.0.0
+-- DontTrust Relational Database Schema & Migration v1.0.0
 -- Standard SQL DDL compatible with PostgreSQL & SQLite
 -- ==========================================================
 

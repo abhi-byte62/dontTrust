@@ -1,5 +1,5 @@
 {
-  "name": "@aegisscan/protocol-models",
+  "name": "@donttrust/protocol-models",
   "version": "1.0.0",
   "type": "module",
   "main": "./src/index.ts",
@@ -16,6 +16,6 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@aegisscan/finding-schema": "*"
+    "@donttrust/finding-schema": "*"
   }
 }

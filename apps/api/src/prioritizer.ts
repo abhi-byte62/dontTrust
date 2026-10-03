@@ -1,4 +1,4 @@
-import { HttpMethod, TechnologyFingerprint } from '@aegisscan/protocol-models';
+import { HttpMethod, TechnologyFingerprint } from '@donttrust/protocol-models';
 
 export interface PrioritizedTask {
   endpointId: string;

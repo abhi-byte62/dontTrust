@@ -1,5 +1,5 @@
 {
-  "name": "@aegisscan/application-model",
+  "name": "@donttrust/application-model",
   "version": "1.0.0",
   "type": "module",
   "main": "./src/index.ts",
@@ -16,8 +16,8 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@aegisscan/common": "*",
-    "@aegisscan/protocol-models": "*",
-    "@aegisscan/finding-schema": "*"
+    "@donttrust/common": "*",
+    "@donttrust/protocol-models": "*",
+    "@donttrust/finding-schema": "*"
   }
 }

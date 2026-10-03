@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { HeadlessBrowserWorker, StaticDomParser } from '../src/index.js';
-import { ScopeEngine } from '@aegisscan/scope-engine';
+import { ScopeEngine } from '@donttrust/scope-engine';
 
 describe('HeadlessBrowserWorker & StaticDomParser', () => {
   const scopeEngine = new ScopeEngine({

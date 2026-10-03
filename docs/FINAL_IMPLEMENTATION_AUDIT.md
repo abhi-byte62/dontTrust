@@ -2,7 +2,7 @@
 
 ## 1. Executive Summary
 
-This document presents the complete architectural and empirical audit of the **DontTrust** (formerly AegisScan) Web Application Security Assessment & Attack-Surface Intelligence Platform.
+This document presents the complete architectural and empirical audit of the **DontTrust** (formerly DontTrust) Web Application Security Assessment & Attack-Surface Intelligence Platform.
 
 Every metric and test status in this audit corresponds to live executed code in the repository.
 

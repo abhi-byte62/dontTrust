@@ -1,6 +1,6 @@
-import { JobEnvelope, jobBroker } from '@aegisscan/scanner-sdk';
-import { Logger } from '@aegisscan/common';
-import { HttpMethod } from '@aegisscan/protocol-models';
+import { JobEnvelope, jobBroker } from '@donttrust/scanner-sdk';
+import { Logger } from '@donttrust/common';
+import { HttpMethod } from '@donttrust/protocol-models';
 
 export interface ApiAnalyzerPayload {
   baseUrl: string;
@@ -170,9 +170,9 @@ export class ApiAnalyzerWorker {
 
   public startPolling(): void {
     setInterval(async () => {
-      jobBroker.heartbeat(this.workerId, 'aegis.api-analysis');
+      jobBroker.heartbeat(this.workerId, 'donttrust.api-analysis');
       await jobBroker.executeJob<ApiAnalyzerPayload, DiscoveredApiSchema[]>(
-        'aegis.api-analysis',
+        'donttrust.api-analysis',
         this.workerId,
         (job) => this.processJob(job)
       );

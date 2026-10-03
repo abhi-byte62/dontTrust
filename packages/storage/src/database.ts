@@ -1,4 +1,4 @@
-import { Logger } from '@aegisscan/common';
+import { Logger } from '@donttrust/common';
 
 export interface QueryFilter {
   [key: string]: unknown;

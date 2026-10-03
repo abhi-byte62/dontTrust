@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import { store, storage, DbFinding, DbTarget } from './store.js';
 import { ScanOrchestrator } from './orchestrator.js';
-import { RuleRegistry } from '@aegisscan/rules';
+import { RuleRegistry } from '@donttrust/rules';
 
 export function createServer() {
   const app = express();

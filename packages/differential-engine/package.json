@@ -1,5 +1,5 @@
 {
-  "name": "@aegisscan/differential-engine",
+  "name": "@donttrust/differential-engine",
   "version": "1.0.0",
   "type": "module",
   "main": "./src/index.ts",
@@ -16,7 +16,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@aegisscan/common": "*",
-    "@aegisscan/protocol-models": "*"
+    "@donttrust/common": "*",
+    "@donttrust/protocol-models": "*"
   }
 }

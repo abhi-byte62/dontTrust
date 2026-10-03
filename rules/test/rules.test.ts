@@ -8,8 +8,8 @@ import {
   ReflectedXssDetectionRule,
   ExposedSecretsRule
 } from '../src/index.js';
-import { ScopeEngine } from '@aegisscan/scope-engine';
-import { Logger } from '@aegisscan/common';
+import { ScopeEngine } from '@donttrust/scope-engine';
+import { Logger } from '@donttrust/common';
 
 describe('Security Rules Evaluation', () => {
   const scopeEngine = new ScopeEngine({ allowedDomains: ['example.com'] });

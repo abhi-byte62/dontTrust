@@ -2,9 +2,9 @@ import {
   SecurityRule,
   RuleMetadata,
   DetectionContext
-} from '@aegisscan/scanner-sdk';
-import { FindingRecord } from '@aegisscan/finding-schema';
-import { SecretRedactor } from '@aegisscan/common';
+} from '@donttrust/scanner-sdk';
+import { FindingRecord } from '@donttrust/finding-schema';
+import { SecretRedactor } from '@donttrust/common';
 
 export class ExposedSecretsRule extends SecurityRule {
   readonly metadata: RuleMetadata = {

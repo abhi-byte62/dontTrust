@@ -1,6 +1,6 @@
-import { ScopeEngine } from '@aegisscan/scope-engine';
-import { Logger } from '@aegisscan/common';
-import { HttpMethod } from '@aegisscan/protocol-models';
+import { ScopeEngine } from '@donttrust/scope-engine';
+import { Logger } from '@donttrust/common';
+import { HttpMethod } from '@donttrust/protocol-models';
 
 export interface InterceptedEndpoint {
   url: string;

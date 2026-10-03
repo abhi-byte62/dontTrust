@@ -1,5 +1,5 @@
-import { Hasher } from '@aegisscan/common';
-import { HttpMethod } from '@aegisscan/protocol-models';
+import { Hasher } from '@donttrust/common';
+import { HttpMethod } from '@donttrust/protocol-models';
 
 export const Severity = {
   CRITICAL: 'CRITICAL',

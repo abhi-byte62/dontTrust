@@ -1,7 +1,7 @@
-import { JobEnvelope, jobBroker } from '@aegisscan/scanner-sdk';
-import { ScopeEngine } from '@aegisscan/scope-engine';
-import { Logger } from '@aegisscan/common';
-import { HttpMethod, FormModel } from '@aegisscan/protocol-models';
+import { JobEnvelope, jobBroker } from '@donttrust/scanner-sdk';
+import { ScopeEngine } from '@donttrust/scope-engine';
+import { Logger } from '@donttrust/common';
+import { HttpMethod, FormModel } from '@donttrust/protocol-models';
 
 export interface CrawlerJobPayload {
   seedUrl: string;
@@ -206,9 +206,9 @@ export class CrawlerWorker {
 
   public startPolling(): void {
     setInterval(async () => {
-      jobBroker.heartbeat(this.workerId, 'aegis.crawl');
+      jobBroker.heartbeat(this.workerId, 'donttrust.crawl');
       await jobBroker.executeJob<CrawlerJobPayload, CrawlResult>(
-        'aegis.crawl',
+        'donttrust.crawl',
         this.workerId,
         (job) => this.processJob(job)
       );

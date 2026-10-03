@@ -10,7 +10,7 @@ export enum ErrorCode {
   PAYLOAD_SIZE_EXCEEDED = 'PAYLOAD_SIZE_EXCEEDED'
 }
 
-export class AegisError extends Error {
+export class DontTrustError extends Error {
   public readonly code: ErrorCode;
   public readonly correlationId?: string;
   public readonly details?: Record<string, unknown>;
@@ -25,7 +25,7 @@ export class AegisError extends Error {
     cause?: Error;
   }) {
     super(params.message);
-    this.name = 'AegisError';
+    this.name = 'DontTrustError';
     this.code = params.code;
     this.correlationId = params.correlationId;
     this.details = params.details;

@@ -14,10 +14,10 @@ This script provides a concise walkthrough for presenting DontTrust to technical
 ## Step 3: Start the Benchmark Lab & API (1 Min)
 ```bash
 # Terminal 1: Vulnerable Lab
-npm run start -w @aegisscan/vulnerable-lab
+npm run start -w @donttrust/vulnerable-lab
 
 # Terminal 2: API Gateway
-npm run dev -w @aegisscan/api
+npm run dev -w @donttrust/api
 ```
 
 ## Step 4: Run a Controlled Scan via CLI (2 Min)

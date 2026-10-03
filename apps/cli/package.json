@@ -1,20 +1,20 @@
 {
-  "name": "@aegisscan/cli",
+  "name": "@donttrust/cli",
   "version": "1.0.0",
   "type": "module",
   "bin": {
-    "aegis": "./dist/index.js"
+    "donttrust": "./dist/index.js"
   },
   "scripts": {
     "build": "tsc",
     "test": "vitest run"
   },
   "dependencies": {
-    "@aegisscan/common": "*",
-    "@aegisscan/finding-schema": "*",
-    "@aegisscan/protocol-models": "*",
-    "@aegisscan/scanner-sdk": "*",
-    "@aegisscan/scope-engine": "*",
+    "@donttrust/common": "*",
+    "@donttrust/finding-schema": "*",
+    "@donttrust/protocol-models": "*",
+    "@donttrust/scanner-sdk": "*",
+    "@donttrust/scope-engine": "*",
     "commander": "^13.1.0"
   }
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
-import { ScopeEngine } from '@aegisscan/scope-engine';
-import { SecretRedactor } from '@aegisscan/common';
+import { ScopeEngine } from '@donttrust/scope-engine';
+import { SecretRedactor } from '@donttrust/common';
 
 const program = new Command();
 

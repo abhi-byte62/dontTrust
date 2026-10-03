@@ -8,7 +8,7 @@ import {
   DbFinding,
   DbAttackSurfaceNode,
   DbAttackSurfaceEdge
-} from '@aegisscan/storage';
+} from '@donttrust/storage';
 
 export { storage };
 export type {

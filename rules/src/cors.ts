@@ -4,8 +4,8 @@ import {
   DetectionContext,
   VerificationContext,
   VerificationResult
-} from '@aegisscan/scanner-sdk';
-import { FindingRecord } from '@aegisscan/finding-schema';
+} from '@donttrust/scanner-sdk';
+import { FindingRecord } from '@donttrust/finding-schema';
 
 export class CorsOriginReflectionRule extends SecurityRule {
   readonly metadata: RuleMetadata = {
@@ -71,7 +71,7 @@ export class CorsOriginReflectionRule extends SecurityRule {
   }
 
   override async verify(context: VerificationContext): Promise<VerificationResult> {
-    const testOrigin = 'https://aegisscan-canary-test.invalid';
+    const testOrigin = 'https://donttrust-canary-test.invalid';
     try {
       const res = await context.httpRequester({
         url: context.finding.endpointPath.startsWith('http')

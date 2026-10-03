@@ -4,8 +4,8 @@ import {
   DetectionContext,
   VerificationContext,
   VerificationResult
-} from '@aegisscan/scanner-sdk';
-import { FindingRecord } from '@aegisscan/finding-schema';
+} from '@donttrust/scanner-sdk';
+import { FindingRecord } from '@donttrust/finding-schema';
 
 export class ReflectedXssDetectionRule extends SecurityRule {
   readonly metadata: RuleMetadata = {
@@ -67,7 +67,7 @@ export class ReflectedXssDetectionRule extends SecurityRule {
   }
 
   override async verify(context: VerificationContext): Promise<VerificationResult> {
-    const canaryMarker = `aegiscanary${Math.floor(Math.random() * 100000)}`;
+    const canaryMarker = `donttrustcanary${Math.floor(Math.random() * 100000)}`;
     const testProbe = `<${canaryMarker}>`;
 
     try {

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { ApplicationModel } from '../src/index.js';
-import { FindingBuilder } from '@aegisscan/finding-schema';
+import { FindingBuilder } from '@donttrust/finding-schema';
 
 describe('Application Intelligence Model', () => {
   it('creates an application model, incrementally adds endpoints and merges parameters', () => {

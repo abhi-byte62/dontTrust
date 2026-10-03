@@ -1,5 +1,5 @@
 {
-  "name": "@aegisscan/browser-worker",
+  "name": "@donttrust/browser-worker",
   "version": "1.0.0",
   "type": "module",
   "main": "./src/index.ts",
@@ -16,9 +16,9 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@aegisscan/common": "*",
-    "@aegisscan/protocol-models": "*",
-    "@aegisscan/scanner-sdk": "*",
-    "@aegisscan/scope-engine": "*"
+    "@donttrust/common": "*",
+    "@donttrust/protocol-models": "*",
+    "@donttrust/scanner-sdk": "*",
+    "@donttrust/scope-engine": "*"
   }
 }

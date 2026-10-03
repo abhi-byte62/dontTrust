@@ -3,7 +3,7 @@ import request from 'supertest';
 import { createServer } from '../src/server.js';
 import { store } from '../src/store.js';
 
-describe('AegisScan API Endpoints & Scan Flow', () => {
+describe('DontTrust API Endpoints & Scan Flow', () => {
   const app = createServer();
 
   it('GET /health returns healthy status', async () => {

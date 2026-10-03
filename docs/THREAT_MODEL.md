@@ -1,7 +1,7 @@
-# AegisScan: Threat Model & Security Architecture
+# DontTrust: Threat Model & Security Architecture
 
 ## 1. System Boundaries & Assets
-AegisScan processes untrusted input from hostile external web applications, parses dynamic JavaScript, follows HTTP redirects, executes headless browser sessions, and persists raw HTTP evidence.
+DontTrust processes untrusted input from hostile external web applications, parses dynamic JavaScript, follows HTTP redirects, executes headless browser sessions, and persists raw HTTP evidence.
 
 ### Critical Assets:
 1. **Control Plane Host**: The host server executing the API and database.

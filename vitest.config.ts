@@ -6,13 +6,13 @@ export default defineConfig({
     globals: true,
     environment: 'node',
     alias: {
-      '@aegisscan/common': path.resolve(__dirname, './packages/common/src/index.ts'),
-      '@aegisscan/finding-schema': path.resolve(__dirname, './packages/finding-schema/src/index.ts'),
-      '@aegisscan/protocol-models': path.resolve(__dirname, './packages/protocol-models/src/index.ts'),
-      '@aegisscan/scope-engine': path.resolve(__dirname, './packages/scope-engine/src/index.ts'),
-      '@aegisscan/scanner-sdk': path.resolve(__dirname, './packages/scanner-sdk/src/index.ts'),
-      '@aegisscan/storage': path.resolve(__dirname, './packages/storage/src/index.ts'),
-      '@aegisscan/rules': path.resolve(__dirname, './rules/src/index.ts')
+      '@donttrust/common': path.resolve(__dirname, './packages/common/src/index.ts'),
+      '@donttrust/finding-schema': path.resolve(__dirname, './packages/finding-schema/src/index.ts'),
+      '@donttrust/protocol-models': path.resolve(__dirname, './packages/protocol-models/src/index.ts'),
+      '@donttrust/scope-engine': path.resolve(__dirname, './packages/scope-engine/src/index.ts'),
+      '@donttrust/scanner-sdk': path.resolve(__dirname, './packages/scanner-sdk/src/index.ts'),
+      '@donttrust/storage': path.resolve(__dirname, './packages/storage/src/index.ts'),
+      '@donttrust/rules': path.resolve(__dirname, './rules/src/index.ts')
     }
   }
 });

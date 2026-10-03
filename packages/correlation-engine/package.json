@@ -1,5 +1,5 @@
 {
-  "name": "@aegisscan/correlation-engine",
+  "name": "@donttrust/correlation-engine",
   "version": "1.0.0",
   "type": "module",
   "main": "./src/index.ts",
@@ -16,8 +16,8 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@aegisscan/common": "*",
-    "@aegisscan/finding-schema": "*",
-    "@aegisscan/protocol-models": "*"
+    "@donttrust/common": "*",
+    "@donttrust/finding-schema": "*",
+    "@donttrust/protocol-models": "*"
   }
 }

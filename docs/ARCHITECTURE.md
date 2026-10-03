@@ -4,6 +4,14 @@
 
 ---
 
+## 0. Implementation Boundary
+
+The current public repository provides a local, single-host reference implementation optimized for reproducible development, testing, and benchmarking with an in-memory job broker and file-backed graph storage (`packages/storage`, `packages/scanner-sdk`).
+
+The distributed deployment architecture described below represents the target production design for horizontally scalable worker swarms, RabbitMQ message brokers, PostgreSQL persistent storage, Redis caching, and Prometheus/Grafana observability.
+
+---
+
 ## 1. System Architecture
 
 DontTrust is architected as an asynchronous, event-driven, distributed intelligence and security assessment platform. The architecture cleanly separates:
@@ -79,7 +87,7 @@ flowchart TD
 A monorepo structure designed for modularity, strict package isolation, clean testing boundaries, and multi-language worker extensibility:
 
 ```text
-aegisscan/
+donttrust/
 ├── apps/
 │   ├── web/                        # React + TypeScript + Vite + Tailwind Security Dashboard
 │   └── api/                        # Control Plane API & Central Scan Orchestrator
@@ -280,9 +288,9 @@ RabbitMQ provides message exchange routing with Dead Letter Exchanges (DLX), pri
 
 ```text
 Exchanges:
-├── aegis.scan.direct     -> Direct exchange for targeted worker tasks
-├── aegis.events.topic    -> Topic exchange for telemetry, status, discoveries
-└── aegis.dlx.direct      -> Dead-letter routing for exhausted retries
+├── donttrust.scan.direct     -> Direct exchange for targeted worker tasks
+├── donttrust.events.topic    -> Topic exchange for telemetry, status, discoveries
+└── donttrust.dlx.direct      -> Dead-letter routing for exhausted retries
 
 Queues:
 ├── q.recon.tasks         [recon.worker]       (Priority: Normal)
@@ -419,9 +427,9 @@ Edges:
 
 ---
 
-## 11. Security Threat Model (for AegisScan itself)
+## 11. Security Threat Model (for DontTrust itself)
 
-| Threat | Description | Mitigation in AegisScan |
+| Threat | Description | Mitigation in DontTrust |
 |---|---|---|
 | **SSRF via Control Plane** | Attacker supplies target URLs pointing to internal AWS metadata (`169.254.169.254`) or localhost. | Strict `ScopeEngine` IP resolution validation, blocking non-routable/loopback/link-local addresses prior to network calls, re-validating on redirects. |
 | **Malicious Target Payload Injection (XSS)** | Hostile scanned target embeds malicious script tags in page title, headers, or body to attack scanner UI. | Output sanitization, strict React JSX escaping, no `dangerouslySetInnerHTML`, Content-Security-Policy on UI. |

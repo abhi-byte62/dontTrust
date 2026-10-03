@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { DifferentialEngine } from '../src/index.js';
-import { HttpResponseModel } from '@aegisscan/protocol-models';
+import { HttpResponseModel } from '@donttrust/protocol-models';
 
 describe('DifferentialEngine', () => {
   const engine = new DifferentialEngine();

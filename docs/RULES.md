@@ -1,7 +1,7 @@
-# AegisScan Detection Rules & Rule SDK Reference
+# DontTrust Detection Rules & Rule SDK Reference
 
 ## 1. Rule Architecture
-Every rule in AegisScan extends the abstract `SecurityRule` class defined in `@aegisscan/scanner-sdk`.
+Every rule in DontTrust extends the abstract `SecurityRule` class defined in `@donttrust/scanner-sdk`.
 
 ```typescript
 export abstract class SecurityRule {

@@ -1,4 +1,4 @@
-import { SecurityRule } from '@aegisscan/scanner-sdk';
+import { SecurityRule } from '@donttrust/scanner-sdk';
 export class CorsOriginReflectionRule extends SecurityRule {
     metadata = {
         id: 'cors-origin-reflection',
@@ -47,7 +47,7 @@ export class CorsOriginReflectionRule extends SecurityRule {
         return findings;
     }
     async verify(context) {
-        const testOrigin = 'https://aegisscan-canary-test.invalid';
+        const testOrigin = 'https://donttrust-canary-test.invalid';
         try {
             const res = await context.httpRequester({
                 url: context.finding.endpointPath.startsWith('http')

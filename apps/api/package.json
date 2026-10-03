@@ -1,5 +1,5 @@
 {
-  "name": "@aegisscan/api",
+  "name": "@donttrust/api",
   "version": "1.0.0",
   "type": "module",
   "main": "./dist/index.js",
@@ -11,16 +11,16 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@aegisscan/application-model": "*",
-    "@aegisscan/common": "*",
-    "@aegisscan/correlation-engine": "*",
-    "@aegisscan/differential-engine": "*",
-    "@aegisscan/finding-schema": "*",
-    "@aegisscan/observability": "*",
-    "@aegisscan/protocol-models": "*",
-    "@aegisscan/scanner-sdk": "*",
-    "@aegisscan/scope-engine": "*",
-    "@aegisscan/storage": "*",
+    "@donttrust/application-model": "*",
+    "@donttrust/common": "*",
+    "@donttrust/correlation-engine": "*",
+    "@donttrust/differential-engine": "*",
+    "@donttrust/finding-schema": "*",
+    "@donttrust/observability": "*",
+    "@donttrust/protocol-models": "*",
+    "@donttrust/scanner-sdk": "*",
+    "@donttrust/scope-engine": "*",
+    "@donttrust/storage": "*",
     "express": "^4.21.2",
     "cors": "^2.8.5",
     "ws": "^8.18.0"

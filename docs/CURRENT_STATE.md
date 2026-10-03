@@ -1,4 +1,4 @@
-# AegisScan: Current System State & Architectural Audit
+# DontTrust: Current System State & Architectural Audit
 
 **Audit Date:** October 2, 2026  
 **Codebase Version:** 1.0.0-PRO (Initial Foundation)  
@@ -8,7 +8,7 @@
 
 ## 1. Executive Summary
 
-This document provides a realistic, evidence-based technical audit of the current AegisScan repository. It distinguishes between what is **production-functional**, what is **partially implemented or in-process**, what is **simulated/monolithic**, and what remains **missing** to achieve the vision of a research-grade, distributed attack-surface intelligence and assessment platform.
+This document provides a realistic, evidence-based technical audit of the current DontTrust repository. It distinguishes between what is **production-functional**, what is **partially implemented or in-process**, what is **simulated/monolithic**, and what remains **missing** to achieve the vision of a research-grade, distributed attack-surface intelligence and assessment platform.
 
 ---
 
@@ -57,14 +57,14 @@ This document provides a realistic, evidence-based technical audit of the curren
    - *Current State:* JavaScript analysis uses regex-based secret scanning in HTTP responses.
    - *Simulated Aspect:* Full Babel/Acorn AST parsing for source-to-sink taint tracking is specified in domain models but not yet implemented as an isolated worker service.
 3. **Multi-Identity Authorization Matrix**:
-   - *Current State:* Data types and auth profiles (`AuthProfile`, `AuthorizationMatrixEntry`) are defined in `@aegisscan/protocol-models`.
+   - *Current State:* Data types and auth profiles (`AuthProfile`, `AuthorizationMatrixEntry`) are defined in `@donttrust/protocol-models`.
    - *Simulated Aspect:* Automated cross-identity differential probing (Anonymous vs. User A vs. User B vs. Admin) is not yet executing active comparison passes.
 
 ---
 
 ### 2.4 Currently Missing
 
-1. **Distributed Message Broker (RabbitMQ)**: Dedicated message queues (`aegis.recon`, `aegis.crawl`, `aegis.browser`, `aegis.analysis`, `aegis.verification`, `aegis.report`) with dead-letter exchanges and worker acknowledgment.
+1. **Distributed Message Broker (RabbitMQ)**: Dedicated message queues (`donttrust.recon`, `donttrust.crawl`, `donttrust.browser`, `donttrust.analysis`, `donttrust.verification`, `donttrust.report`) with dead-letter exchanges and worker acknowledgment.
 2. **Decoupled Worker Services**: Independent worker processes in `services/` (`recon-worker`, `crawler-worker`, `browser-worker`, `js-analyzer`, `api-analyzer`, `auth-analyzer`, `verification-worker`, `report-worker`).
 3. **PostgreSQL Migrations & Schema**: Persistent relational tables for scans, findings, evidence blobs, assets, and historical baselines.
 4. **Redis Coordination**: Distributed rate-limiting token buckets and scan lock management.

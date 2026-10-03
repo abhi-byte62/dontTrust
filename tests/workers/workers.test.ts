@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { ScanStateMachine, JobBroker, JobEnvelope } from '@aegisscan/scanner-sdk';
+import { ScanStateMachine, JobBroker, JobEnvelope } from '@donttrust/scanner-sdk';
 import { ReconWorker } from '../../services/recon-worker/src/index.js';
 import { CrawlerWorker } from '../../services/crawler-worker/src/index.js';
 import { JsAnalyzerWorker } from '../../services/js-analyzer/src/index.js';
@@ -65,14 +65,14 @@ describe('JobBroker & Distributed Queue Scheduling', () => {
       payload: { url: 'http://critical.example.com' }
     };
 
-    broker.publish('aegis.recon', jobNormal);
-    broker.publish('aegis.recon', jobCritical);
+    broker.publish('donttrust.recon', jobNormal);
+    broker.publish('donttrust.recon', jobCritical);
 
     // Critical job must be consumed first
-    const nextJob = broker.consumeNext('aegis.recon');
+    const nextJob = broker.consumeNext('donttrust.recon');
     expect(nextJob?.jobId).toBe('job-critical');
 
-    const secondJob = broker.consumeNext('aegis.recon');
+    const secondJob = broker.consumeNext('donttrust.recon');
     expect(secondJob?.jobId).toBe('job-normal');
   });
 
@@ -92,10 +92,10 @@ describe('JobBroker & Distributed Queue Scheduling', () => {
       payload: {}
     };
 
-    broker.publish('aegis.crawl', failingJob);
+    broker.publish('donttrust.crawl', failingJob);
 
     await expect(
-      broker.executeJob('aegis.crawl', 'w1', async () => {
+      broker.executeJob('donttrust.crawl', 'w1', async () => {
         throw new Error('Connection timeout');
       })
     ).rejects.toThrow();

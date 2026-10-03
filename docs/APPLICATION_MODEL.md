@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **Application Intelligence Model** (`@aegisscan/application-model`) provides a canonical, serializable, deterministic representation of a target web application's structure, semantics, and observed states.
+The **Application Intelligence Model** (`@donttrust/application-model`) provides a canonical, serializable, deterministic representation of a target web application's structure, semantics, and observed states.
 
 Implemented in:
 - Model Manager: [`ApplicationModel`](file:///c:/Users/mrabh/OneDrive/Desktop/bullu/packages/application-model/src/application-model.ts)

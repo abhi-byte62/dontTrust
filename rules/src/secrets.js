@@ -1,5 +1,5 @@
-import { SecurityRule } from '@aegisscan/scanner-sdk';
-import { SecretRedactor } from '@aegisscan/common';
+import { SecurityRule } from '@donttrust/scanner-sdk';
+import { SecretRedactor } from '@donttrust/common';
 export class ExposedSecretsRule extends SecurityRule {
     metadata = {
         id: 'exposed-secrets-in-response',

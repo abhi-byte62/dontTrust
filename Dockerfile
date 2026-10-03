@@ -15,4 +15,4 @@ RUN npm run build
 
 EXPOSE 4000 5173 8080
 
-CMD ["npm", "run", "dev", "-w", "@aegisscan/api"]
+CMD ["npm", "run", "start", "-w", "@donttrust/api"]

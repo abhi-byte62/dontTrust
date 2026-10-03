@@ -1,4 +1,4 @@
-import { SecurityRule } from '@aegisscan/scanner-sdk';
+import { SecurityRule } from '@donttrust/scanner-sdk';
 export class SqlInjectionDetectionRule extends SecurityRule {
     metadata = {
         id: 'sql-injection-indicator',

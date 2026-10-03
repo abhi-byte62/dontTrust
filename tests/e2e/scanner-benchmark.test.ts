@@ -5,7 +5,7 @@ import { store } from '../../apps/api/src/store.js';
 import request from 'supertest';
 import http from 'node:http';
 
-describe('AegisScan End-to-End Benchmark & Negative Regression Suite', () => {
+describe('DontTrust End-to-End Benchmark & Negative Regression Suite', () => {
   let labServer: http.Server;
   const labPort = 8081;
   const apiApp = createServer();

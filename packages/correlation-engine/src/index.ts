@@ -1,5 +1,5 @@
-import { FindingRecord, Severity, Confidence, FindingCategory } from '@aegisscan/finding-schema';
-import { Hasher } from '@aegisscan/common';
+import { FindingRecord, Severity, Confidence, FindingCategory } from '@donttrust/finding-schema';
+import { Hasher } from '@donttrust/common';
 
 export interface AttackChainStep {
   findingId: string;

@@ -4,10 +4,10 @@ import {
   Severity,
   Confidence,
   FindingBuilder
-} from '@aegisscan/finding-schema';
-import { HttpRequestModel, HttpResponseModel } from '@aegisscan/protocol-models';
-import { ScopeEngine } from '@aegisscan/scope-engine';
-import { Logger } from '@aegisscan/common';
+} from '@donttrust/finding-schema';
+import { HttpRequestModel, HttpResponseModel } from '@donttrust/protocol-models';
+import { ScopeEngine } from '@donttrust/scope-engine';
+import { Logger } from '@donttrust/common';
 
 export type ScanMode = 'PASSIVE' | 'ACTIVE';
 

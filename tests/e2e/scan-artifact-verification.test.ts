@@ -7,7 +7,7 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 
-describe('AegisScan Full-Pipeline Artifact Generation & Scan Reproducibility', () => {
+describe('DontTrust Full-Pipeline Artifact Generation & Scan Reproducibility', () => {
   let labServer: http.Server;
   const labPort = 8082;
   const apiApp = createServer();

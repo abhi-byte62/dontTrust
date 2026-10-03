@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { ReconWorker, TechnologyFingerprinter } from '../src/index.js';
-import { ScopeEngine } from '@aegisscan/scope-engine';
+import { ScopeEngine } from '@donttrust/scope-engine';
 
 describe('ReconWorker & Deep Technology Fingerprinting', () => {
   it('fingerprints multiple technologies from headers and HTML body', () => {
@@ -27,7 +27,7 @@ describe('ReconWorker & Deep Technology Fingerprinting', () => {
     const result = await worker.processJob({
       jobId: 'job-1',
       scanId: 'scan-1',
-      queue: 'aegis.recon',
+      queue: 'donttrust.recon',
       priority: 0,
       attempts: 0,
       maxRetries: 3,

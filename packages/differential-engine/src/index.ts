@@ -1,5 +1,5 @@
-import { Hasher } from '@aegisscan/common';
-import { HttpResponseModel } from '@aegisscan/protocol-models';
+import { Hasher } from '@donttrust/common';
+import { HttpResponseModel } from '@donttrust/protocol-models';
 
 export interface DifferentialOptions {
   similarityThreshold?: number; // 0.0 - 1.0 (e.g., 0.95 = 95% similar)

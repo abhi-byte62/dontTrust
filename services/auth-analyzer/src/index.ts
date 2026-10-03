@@ -1,6 +1,6 @@
-import { JobEnvelope, jobBroker } from '@aegisscan/scanner-sdk';
-import { Logger, SecretRedactor, Hasher } from '@aegisscan/common';
-import { AuthRole, HttpMethod } from '@aegisscan/protocol-models';
+import { JobEnvelope, jobBroker } from '@donttrust/scanner-sdk';
+import { Logger, SecretRedactor, Hasher } from '@donttrust/common';
+import { AuthRole, HttpMethod } from '@donttrust/protocol-models';
 
 export interface IdentityProfile {
   identityId: string;
@@ -217,9 +217,9 @@ export class AuthAnalyzerWorker {
 
   public startPolling(): void {
     setInterval(async () => {
-      jobBroker.heartbeat(this.workerId, 'aegis.auth-analysis');
+      jobBroker.heartbeat(this.workerId, 'donttrust.auth-analysis');
       await jobBroker.executeJob<AuthMatrixJobPayload, AuthorizationAnalysisResult>(
-        'aegis.auth-analysis',
+        'donttrust.auth-analysis',
         this.workerId,
         (job) => this.processJob(job)
       );

@@ -1,6 +1,6 @@
-import { Severity, Confidence, FindingStatus, FindingCategory } from '@aegisscan/finding-schema';
-import { ScopePolicyConfig } from '@aegisscan/scope-engine';
-import { AuthRole, HttpMethod, NodeType, EdgeType } from '@aegisscan/protocol-models';
+import { Severity, Confidence, FindingStatus, FindingCategory } from '@donttrust/finding-schema';
+import { ScopePolicyConfig } from '@donttrust/scope-engine';
+import { AuthRole, HttpMethod, NodeType, EdgeType } from '@donttrust/protocol-models';
 
 export interface DbProject {
   id: string;

@@ -1,4 +1,4 @@
-import { SecurityRule } from '@aegisscan/scanner-sdk';
+import { SecurityRule } from '@donttrust/scanner-sdk';
 export class InsecureCookieFlagsRule extends SecurityRule {
     metadata = {
         id: 'insecure-cookie-flags',

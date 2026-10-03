@@ -1,5 +1,5 @@
-import { SecurityRule, RuleMetadata, DetectionContext, VerificationContext, VerificationResult } from '@aegisscan/scanner-sdk';
-import { FindingRecord } from '@aegisscan/finding-schema';
+import { SecurityRule, RuleMetadata, DetectionContext, VerificationContext, VerificationResult } from '@donttrust/scanner-sdk';
+import { FindingRecord } from '@donttrust/finding-schema';
 export declare class CorsOriginReflectionRule extends SecurityRule {
     readonly metadata: RuleMetadata;
     applicability(context: DetectionContext): boolean;

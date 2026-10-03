@@ -1,4 +1,4 @@
-import { SecurityRule } from '@aegisscan/scanner-sdk';
+import { SecurityRule } from '@donttrust/scanner-sdk';
 import { MissingSecurityHeadersRule } from './headers.js';
 import { CorsOriginReflectionRule } from './cors.js';
 import { InsecureCookieFlagsRule } from './cookies.js';

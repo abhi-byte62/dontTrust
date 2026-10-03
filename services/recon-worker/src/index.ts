@@ -1,7 +1,7 @@
-import { JobEnvelope, jobBroker } from '@aegisscan/scanner-sdk';
-import { ScopeEngine } from '@aegisscan/scope-engine';
-import { Logger } from '@aegisscan/common';
-import { AttackSurfaceNode, AttackSurfaceEdge, TechnologyFingerprint } from '@aegisscan/protocol-models';
+import { JobEnvelope, jobBroker } from '@donttrust/scanner-sdk';
+import { ScopeEngine } from '@donttrust/scope-engine';
+import { Logger } from '@donttrust/common';
+import { AttackSurfaceNode, AttackSurfaceEdge, TechnologyFingerprint } from '@donttrust/protocol-models';
 
 export interface ReconJobPayload {
   targetUrl: string;
@@ -255,9 +255,9 @@ export class ReconWorker {
 
   public startPolling(): void {
     setInterval(async () => {
-      jobBroker.heartbeat(this.workerId, 'aegis.recon');
+      jobBroker.heartbeat(this.workerId, 'donttrust.recon');
       await jobBroker.executeJob<ReconJobPayload, ReconResult>(
-        'aegis.recon',
+        'donttrust.recon',
         this.workerId,
         (job) => this.processJob(job)
       );
