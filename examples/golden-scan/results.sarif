@@ -7,7 +7,7 @@
         "driver": {
           "name": "DontTrust",
           "version": "2.0.0",
-          "informationUri": "https://github.com/abhi-byte62/cybbull.git",
+          "informationUri": "https://github.com/abhi-byte62/dontTrust.git",
           "rules": [
             {
               "id": "REFLECTED_XSS",

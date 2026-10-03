@@ -85,7 +85,7 @@ Unlike traditional heuristic scanners that blindly fire hundreds of destructive 
 
 ### 1. Installation & Build
 ```bash
-git clone https://github.com/abhi-byte62/cybbull.git
+git clone https://github.com/abhi-byte62/dontTrust.git
 cd donttrust
 npm install
 npm run build

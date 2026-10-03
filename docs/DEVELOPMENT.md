@@ -1,4 +1,4 @@
-# AegisScan Development Guide
+# DontTrust Development Guide
 
 ## Prerequisites
 - Node.js >= 20.0.0

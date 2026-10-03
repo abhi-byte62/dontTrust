@@ -1,7 +1,7 @@
 # DontTrust: Resume & Portfolio Bullet Points
 
 ### **DontTrust — Application Security Assessment & Attack-Surface Intelligence Platform**
-*GitHub: [https://github.com/abhi-byte62/cybbull.git](https://github.com/abhi-byte62/cybbull.git)*
+*GitHub: [https://github.com/abhi-byte62/dontTrust.git](https://github.com/abhi-byte62/dontTrust.git)*
 
 - Architected a distributed, research-grade web application security assessment platform in TypeScript across 17 monorepo workspaces, integrating discovery, state modeling, and empirical verification.
 - Designed a canonical **Application Intelligence Model** and **Attack-Surface Graph 2.0** tracking endpoints, parameters, JavaScript assets, user roles, and state transitions with deterministic SHA-256 fingerprints.
