@@ -1,0 +1,36 @@
+{
+  "name": "@aegisscan/api",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@aegisscan/application-model": "*",
+    "@aegisscan/common": "*",
+    "@aegisscan/correlation-engine": "*",
+    "@aegisscan/differential-engine": "*",
+    "@aegisscan/finding-schema": "*",
+    "@aegisscan/observability": "*",
+    "@aegisscan/protocol-models": "*",
+    "@aegisscan/scanner-sdk": "*",
+    "@aegisscan/scope-engine": "*",
+    "@aegisscan/storage": "*",
+    "express": "^4.21.2",
+    "cors": "^2.8.5",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/cors": "^2.8.17",
+    "@types/ws": "^8.5.14",
+    "supertest": "^7.0.0",
+    "@types/supertest": "^6.0.2",
+    "tsx": "^4.19.3"
+  }
+}

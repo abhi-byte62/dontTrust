@@ -1,0 +1,91 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "DontTrust",
+          "version": "2.0.0",
+          "informationUri": "https://github.com/abhi-byte62/cybbull.git",
+          "rules": [
+            {
+              "id": "REFLECTED_XSS",
+              "name": "Reflected Cross-Site Scripting",
+              "shortDescription": { "text": "Unescaped reflection of user input in response body" },
+              "defaultConfiguration": { "level": "error" }
+            },
+            {
+              "id": "IDOR_HORIZONTAL",
+              "name": "Horizontal Insecure Direct Object Reference",
+              "shortDescription": { "text": "Broken object-level authorization across tenant identities" },
+              "defaultConfiguration": { "level": "error" }
+            },
+            {
+              "id": "SSRF_URL_PARAM",
+              "name": "Server-Side Request Forgery",
+              "shortDescription": { "text": "Unrestricted backend HTTP fetching of user-controlled URLs" },
+              "defaultConfiguration": { "level": "error" }
+            },
+            {
+              "id": "DOM_XSS",
+              "name": "Client-Side DOM Cross-Site Scripting",
+              "shortDescription": { "text": "Untrusted browser source flowing into dangerous execution sink" },
+              "defaultConfiguration": { "level": "error" }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "REFLECTED_XSS",
+          "level": "error",
+          "message": { "text": "Reflected XSS confirmed via differential reflection verification on query parameter 'q'." },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": { "uri": "http://127.0.0.1:8080/api/v1/search" }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "IDOR_HORIZONTAL",
+          "level": "error",
+          "message": { "text": "Horizontal BOLA/IDOR confirmed on order ID parameter across distinct tenant contexts." },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": { "uri": "http://127.0.0.1:8080/api/v1/orders/101" }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "SSRF_URL_PARAM",
+          "level": "error",
+          "message": { "text": "SSRF parameter 'url' enables unauthorized internal resource requests." },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": { "uri": "http://127.0.0.1:8080/fetch-image" }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DOM_XSS",
+          "level": "error",
+          "message": { "text": "Client-side source 'location.search' reaches sink 'innerHTML' in app.js." },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": { "uri": "http://127.0.0.1:8080/assets/app.js" }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

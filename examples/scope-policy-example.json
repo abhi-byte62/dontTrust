@@ -1,0 +1,7 @@
+{
+  "projectId": "proj-example",
+  "allowedDomains": ["127.0.0.1", "localhost"],
+  "allowedProtocols": ["http:", "https:"],
+  "excludedPaths": ["/logout", "/delete"],
+  "allowPrivateIps": true
+}

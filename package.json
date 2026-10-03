@@ -1,0 +1,26 @@
+{
+  "name": "donttrust-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DontTrust: Advanced Web Application Security Assessment & Application Intelligence Platform",
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "services/*",
+    "rules",
+    "lab/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

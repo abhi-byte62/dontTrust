@@ -1,0 +1,567 @@
+{
+  "scan": {
+    "id": "scan-da835382-b775-46fe-acf2-7fc2b106ecfb",
+    "projectId": "proj-cbe9ac25-3526-4219-8f31-cacda7a3301f",
+    "targetId": "target-f5a03873-67f1-45a4-ba3b-14e9f49e1873",
+    "targetUrl": "http://127.0.0.1:8082",
+    "profileName": "STANDARD",
+    "status": "COMPLETED",
+    "activeTestingEnabled": true,
+    "maxRequestsPerSecond": 50,
+    "maxConcurrency": 5,
+    "stats": {
+      "requestsTotal": 1,
+      "requestsBlockedScope": 0,
+      "endpointsDiscovered": 4,
+      "assetsDiscovered": 0,
+      "findingsCount": {
+        "critical": 0,
+        "high": 5,
+        "medium": 4,
+        "low": 2,
+        "info": 0
+      },
+      "durationMs": 24
+    },
+    "startedAt": "2026-10-03T06:44:14.376Z",
+    "completedAt": "2026-10-03T06:44:14.400Z"
+  },
+  "target": {
+    "id": "target-f5a03873-67f1-45a4-ba3b-14e9f49e1873",
+    "url": "http://127.0.0.1:8082",
+    "host": "127.0.0.1",
+    "port": 8082
+  },
+  "discoveredEndpointsCount": 4,
+  "endpoints": [
+    {
+      "id": "3dba51b0-284e-4487-939e-f72b1fc4f261",
+      "scanId": "scan-da835382-b775-46fe-acf2-7fc2b106ecfb",
+      "projectId": "proj-cbe9ac25-3526-4219-8f31-cacda7a3301f",
+      "url": "http://127.0.0.1:8082",
+      "path": "/",
+      "method": "GET",
+      "statusCode": 200,
+      "contentType": "text/html; charset=utf-8",
+      "parameters": [],
+      "discoveredAt": "2026-10-03T06:44:14.394Z"
+    },
+    {
+      "id": "d3cc8dc7-28b4-4aea-80c0-47d28d1b38c8",
+      "scanId": "scan-da835382-b775-46fe-acf2-7fc2b106ecfb",
+      "projectId": "proj-cbe9ac25-3526-4219-8f31-cacda7a3301f",
+      "url": "http://127.0.0.1:8082/api/v1/users",
+      "path": "/api/v1/users",
+      "method": "GET",
+      "statusCode": 200,
+      "contentType": "application/json",
+      "parameters": [
+        "id",
+        "role",
+        "search"
+      ],
+      "discoveredAt": "2026-10-03T06:44:14.394Z"
+    },
+    {
+      "id": "991c1d69-49a5-4d14-9657-d2030164b0f6",
+      "scanId": "scan-da835382-b775-46fe-acf2-7fc2b106ecfb",
+      "projectId": "proj-cbe9ac25-3526-4219-8f31-cacda7a3301f",
+      "url": "http://127.0.0.1:8082/login",
+      "path": "/login",
+      "method": "POST",
+      "statusCode": 200,
+      "contentType": "text/html",
+      "parameters": [
+        "username",
+        "password"
+      ],
+      "discoveredAt": "2026-10-03T06:44:14.394Z"
+    },
+    {
+      "id": "e0565395-9799-447d-b4b2-a0cf97d870e3",
+      "scanId": "scan-da835382-b775-46fe-acf2-7fc2b106ecfb",
+      "projectId": "proj-cbe9ac25-3526-4219-8f31-cacda7a3301f",
+      "url": "http://127.0.0.1:8082/.git/HEAD",
+      "path": "/.git/HEAD",
+      "method": "GET",
+      "statusCode": 200,
+      "contentType": "text/plain",
+      "parameters": [],
+      "discoveredAt": "2026-10-03T06:44:14.394Z"
+    }
+  ],
+  "attackSurfaceGraph": {
+    "nodeCount": 17,
+    "edgeCount": 16,
+    "nodes": [
+      {
+        "id": "node-domain-127.0.0.1",
+        "type": "DOMAIN",
+        "label": "127.0.0.1",
+        "data": {
+          "hostname": "127.0.0.1",
+          "protocol": "http:"
+        },
+        "discoveredAt": "2026-10-03T06:44:14.376Z"
+      },
+      {
+        "id": "node-service-8082",
+        "type": "PORT",
+        "label": "Port 8082",
+        "data": {
+          "port": "8082"
+        },
+        "discoveredAt": "2026-10-03T06:44:14.376Z"
+      },
+      {
+        "id": "node-ep-GET-/",
+        "type": "ENDPOINT",
+        "label": "GET /",
+        "data": {
+          "method": "GET",
+          "path": "/",
+          "params": []
+        },
+        "discoveredAt": "2026-10-03T06:44:14.394Z"
+      },
+      {
+        "id": "node-ep-GET-/api/v1/users",
+        "type": "ENDPOINT",
+        "label": "GET /api/v1/users",
+        "data": {
+          "method": "GET",
+          "path": "/api/v1/users",
+          "params": [
+            "id",
+            "role",
+            "search"
+          ]
+        },
+        "discoveredAt": "2026-10-03T06:44:14.394Z"
+      },
+      {
+        "id": "node-ep-POST-/login",
+        "type": "ENDPOINT",
+        "label": "POST /login",
+        "data": {
+          "method": "POST",
+          "path": "/login",
+          "params": [
+            "username",
+            "password"
+          ]
+        },
+        "discoveredAt": "2026-10-03T06:44:14.394Z"
+      },
+      {
+        "id": "node-ep-GET-/.git/HEAD",
+        "type": "ENDPOINT",
+        "label": "GET /.git/HEAD",
+        "data": {
+          "method": "GET",
+          "path": "/.git/HEAD",
+          "params": []
+        },
+        "discoveredAt": "2026-10-03T06:44:14.394Z"
+      },
+      {
+        "id": "node-finding-fnd-25ba3e172947f7cd",
+        "type": "FINDING",
+        "label": "Missing Security Headers: Content-Security-Policy, X-Content-Type-Options: nosniff (+ more)",
+        "data": {
+          "severity": "LOW",
+          "confidence": "CONFIRMED",
+          "ruleId": "missing-security-headers"
+        },
+        "discoveredAt": "2026-10-03T06:44:14.394Z"
+      },
+      {
+        "id": "node-finding-fnd-dc2f01202799062c",
+        "type": "FINDING",
+        "label": "Invalid/Permissive CORS: Wildcard Origin with Credentials",
+        "data": {
+          "severity": "HIGH",
+          "confidence": "CONFIRMED",
+          "ruleId": "cors-origin-reflection"
+        },
+        "discoveredAt": "2026-10-03T06:44:14.395Z"
+      },
+      {
+        "id": "node-finding-fnd-de943553f31885ff",
+        "type": "FINDING",
+        "label": "Insecure Session Cookie: session (Missing HttpOnly, Missing SameSite)",
+        "data": {
+          "severity": "MEDIUM",
+          "confidence": "CONFIRMED",
+          "ruleId": "insecure-cookie-flags"
+        },
+        "discoveredAt": "2026-10-03T06:44:14.395Z"
+      },
+      {
+        "id": "node-finding-fnd-1d8a20befafaaf70",
+        "type": "FINDING",
+        "label": "Invalid/Permissive CORS: Wildcard Origin with Credentials",
+        "data": {
+          "severity": "HIGH",
+          "confidence": "CONFIRMED",
+          "ruleId": "cors-origin-reflection"
+        },
+        "discoveredAt": "2026-10-03T06:44:14.396Z"
+      },
+      {
+        "id": "node-finding-fnd-a9f5887ca94cec3b",
+        "type": "FINDING",
+        "label": "Insecure Session Cookie: session (Missing HttpOnly, Missing SameSite)",
+        "data": {
+          "severity": "MEDIUM",
+          "confidence": "CONFIRMED",
+          "ruleId": "insecure-cookie-flags"
+        },
+        "discoveredAt": "2026-10-03T06:44:14.396Z"
+      },
+      {
+        "id": "node-finding-fnd-83b7dbc974d84358",
+        "type": "FINDING",
+        "label": "Missing Security Headers: Content-Security-Policy, X-Content-Type-Options: nosniff (+ more)",
+        "data": {
+          "severity": "LOW",
+          "confidence": "CONFIRMED",
+          "ruleId": "missing-security-headers"
+        },
+        "discoveredAt": "2026-10-03T06:44:14.397Z"
+      },
+      {
+        "id": "node-finding-fnd-b942dd0d00c5899f",
+        "type": "FINDING",
+        "label": "Invalid/Permissive CORS: Wildcard Origin with Credentials",
+        "data": {
+          "severity": "HIGH",
+          "confidence": "CONFIRMED",
+          "ruleId": "cors-origin-reflection"
+        },
+        "discoveredAt": "2026-10-03T06:44:14.397Z"
+      },
+      {
+        "id": "node-finding-fnd-d2c6809668d40573",
+        "type": "FINDING",
+        "label": "Insecure Session Cookie: session (Missing HttpOnly, Missing SameSite)",
+        "data": {
+          "severity": "MEDIUM",
+          "confidence": "CONFIRMED",
+          "ruleId": "insecure-cookie-flags"
+        },
+        "discoveredAt": "2026-10-03T06:44:14.397Z"
+      },
+      {
+        "id": "node-finding-fnd-1fbcc82c4abce53e",
+        "type": "FINDING",
+        "label": "Invalid/Permissive CORS: Wildcard Origin with Credentials",
+        "data": {
+          "severity": "HIGH",
+          "confidence": "CONFIRMED",
+          "ruleId": "cors-origin-reflection"
+        },
+        "discoveredAt": "2026-10-03T06:44:14.397Z"
+      },
+      {
+        "id": "node-finding-fnd-d90b1a6508023df1",
+        "type": "FINDING",
+        "label": "Insecure Session Cookie: session (Missing HttpOnly, Missing SameSite)",
+        "data": {
+          "severity": "MEDIUM",
+          "confidence": "CONFIRMED",
+          "ruleId": "insecure-cookie-flags"
+        },
+        "discoveredAt": "2026-10-03T06:44:14.397Z"
+      },
+      {
+        "id": "node-finding-fnd-59f2e3e75ea0172a",
+        "type": "FINDING",
+        "label": "Exposed Git Repository (.git/HEAD)",
+        "data": {
+          "severity": "HIGH",
+          "confidence": "CONFIRMED",
+          "ruleId": "debug-endpoint-exposure"
+        },
+        "discoveredAt": "2026-10-03T06:44:14.397Z"
+      }
+    ],
+    "edges": [
+      {
+        "id": "node-domain-127.0.0.1->node-service-8082",
+        "source": "node-domain-127.0.0.1",
+        "target": "node-service-8082",
+        "type": "RESOLVES_TO"
+      },
+      {
+        "id": "node-service-8082->node-ep-GET-/",
+        "source": "node-service-8082",
+        "target": "node-ep-GET-/",
+        "type": "EXPOSES"
+      },
+      {
+        "id": "node-service-8082->node-ep-GET-/api/v1/users",
+        "source": "node-service-8082",
+        "target": "node-ep-GET-/api/v1/users",
+        "type": "EXPOSES"
+      },
+      {
+        "id": "node-service-8082->node-ep-POST-/login",
+        "source": "node-service-8082",
+        "target": "node-ep-POST-/login",
+        "type": "EXPOSES"
+      },
+      {
+        "id": "node-service-8082->node-ep-GET-/.git/HEAD",
+        "source": "node-service-8082",
+        "target": "node-ep-GET-/.git/HEAD",
+        "type": "EXPOSES"
+      },
+      {
+        "id": "node-finding-fnd-25ba3e172947f7cd->node-ep-GET-/",
+        "source": "node-finding-fnd-25ba3e172947f7cd",
+        "target": "node-ep-GET-/",
+        "type": "AFFECTS"
+      },
+      {
+        "id": "node-finding-fnd-dc2f01202799062c->node-ep-GET-/",
+        "source": "node-finding-fnd-dc2f01202799062c",
+        "target": "node-ep-GET-/",
+        "type": "AFFECTS"
+      },
+      {
+        "id": "node-finding-fnd-de943553f31885ff->node-ep-GET-/",
+        "source": "node-finding-fnd-de943553f31885ff",
+        "target": "node-ep-GET-/",
+        "type": "AFFECTS"
+      },
+      {
+        "id": "node-finding-fnd-1d8a20befafaaf70->node-ep-GET-/api/v1/users",
+        "source": "node-finding-fnd-1d8a20befafaaf70",
+        "target": "node-ep-GET-/api/v1/users",
+        "type": "AFFECTS"
+      },
+      {
+        "id": "node-finding-fnd-a9f5887ca94cec3b->node-ep-GET-/api/v1/users",
+        "source": "node-finding-fnd-a9f5887ca94cec3b",
+        "target": "node-ep-GET-/api/v1/users",
+        "type": "AFFECTS"
+      },
+      {
+        "id": "node-finding-fnd-83b7dbc974d84358->node-ep-POST-/login",
+        "source": "node-finding-fnd-83b7dbc974d84358",
+        "target": "node-ep-POST-/login",
+        "type": "AFFECTS"
+      },
+      {
+        "id": "node-finding-fnd-b942dd0d00c5899f->node-ep-POST-/login",
+        "source": "node-finding-fnd-b942dd0d00c5899f",
+        "target": "node-ep-POST-/login",
+        "type": "AFFECTS"
+      },
+      {
+        "id": "node-finding-fnd-d2c6809668d40573->node-ep-POST-/login",
+        "source": "node-finding-fnd-d2c6809668d40573",
+        "target": "node-ep-POST-/login",
+        "type": "AFFECTS"
+      },
+      {
+        "id": "node-finding-fnd-1fbcc82c4abce53e->node-ep-GET-/.git/HEAD",
+        "source": "node-finding-fnd-1fbcc82c4abce53e",
+        "target": "node-ep-GET-/.git/HEAD",
+        "type": "AFFECTS"
+      },
+      {
+        "id": "node-finding-fnd-d90b1a6508023df1->node-ep-GET-/.git/HEAD",
+        "source": "node-finding-fnd-d90b1a6508023df1",
+        "target": "node-ep-GET-/.git/HEAD",
+        "type": "AFFECTS"
+      },
+      {
+        "id": "node-finding-fnd-59f2e3e75ea0172a->node-ep-GET-/.git/HEAD",
+        "source": "node-finding-fnd-59f2e3e75ea0172a",
+        "target": "node-ep-GET-/.git/HEAD",
+        "type": "AFFECTS"
+      }
+    ]
+  },
+  "findingsCount": 11,
+  "findings": [
+    {
+      "id": "fnd-25ba3e172947f7cd",
+      "ruleId": "missing-security-headers",
+      "title": "Missing Security Headers: Content-Security-Policy, X-Content-Type-Options: nosniff (+ more)",
+      "severity": "LOW",
+      "confidence": "CONFIRMED",
+      "fingerprint": "25ba3e172947f7cde19c270a2de34e33386d70fa59dfba19062f3a1f4c1b8135",
+      "target": {
+        "url": "http://127.0.0.1/",
+        "host": "127.0.0.1",
+        "path": "/",
+        "method": "GET"
+      },
+      "evidenceCount": 1
+    },
+    {
+      "id": "fnd-dc2f01202799062c",
+      "ruleId": "cors-origin-reflection",
+      "title": "Invalid/Permissive CORS: Wildcard Origin with Credentials",
+      "severity": "HIGH",
+      "confidence": "CONFIRMED",
+      "fingerprint": "dc2f01202799062c47c66c64c5a968ea9faecfb3776888782f287f066a3c9a08",
+      "target": {
+        "url": "http://127.0.0.1/",
+        "host": "127.0.0.1",
+        "path": "/",
+        "method": "GET"
+      },
+      "evidenceCount": 1
+    },
+    {
+      "id": "fnd-de943553f31885ff",
+      "ruleId": "insecure-cookie-flags",
+      "title": "Insecure Session Cookie: session (Missing HttpOnly, Missing SameSite)",
+      "severity": "MEDIUM",
+      "confidence": "CONFIRMED",
+      "fingerprint": "de943553f31885ff8a5b1ec71e6484ac61207f2d755ea9f2ecb07f6c2d539342",
+      "target": {
+        "url": "http://127.0.0.1/",
+        "host": "127.0.0.1",
+        "path": "/",
+        "method": "GET"
+      },
+      "evidenceCount": 1
+    },
+    {
+      "id": "fnd-1d8a20befafaaf70",
+      "ruleId": "cors-origin-reflection",
+      "title": "Invalid/Permissive CORS: Wildcard Origin with Credentials",
+      "severity": "HIGH",
+      "confidence": "CONFIRMED",
+      "fingerprint": "1d8a20befafaaf70fe0a3867cff0c84245e723e594a5ede31d3acc38996a9b96",
+      "target": {
+        "url": "http://127.0.0.1/api/v1/users",
+        "host": "127.0.0.1",
+        "path": "/api/v1/users",
+        "method": "GET"
+      },
+      "evidenceCount": 1
+    },
+    {
+      "id": "fnd-a9f5887ca94cec3b",
+      "ruleId": "insecure-cookie-flags",
+      "title": "Insecure Session Cookie: session (Missing HttpOnly, Missing SameSite)",
+      "severity": "MEDIUM",
+      "confidence": "CONFIRMED",
+      "fingerprint": "a9f5887ca94cec3bd8035642f7490af5faa6775133da04ff3608177fccd64cc5",
+      "target": {
+        "url": "http://127.0.0.1/api/v1/users",
+        "host": "127.0.0.1",
+        "path": "/api/v1/users",
+        "method": "GET"
+      },
+      "evidenceCount": 1
+    },
+    {
+      "id": "fnd-83b7dbc974d84358",
+      "ruleId": "missing-security-headers",
+      "title": "Missing Security Headers: Content-Security-Policy, X-Content-Type-Options: nosniff (+ more)",
+      "severity": "LOW",
+      "confidence": "CONFIRMED",
+      "fingerprint": "83b7dbc974d84358adf1650d2d9c922bd3d5dd83a9c9c4f53c1b326a5fe7214b",
+      "target": {
+        "url": "http://127.0.0.1/login",
+        "host": "127.0.0.1",
+        "path": "/login",
+        "method": "POST"
+      },
+      "evidenceCount": 1
+    },
+    {
+      "id": "fnd-b942dd0d00c5899f",
+      "ruleId": "cors-origin-reflection",
+      "title": "Invalid/Permissive CORS: Wildcard Origin with Credentials",
+      "severity": "HIGH",
+      "confidence": "CONFIRMED",
+      "fingerprint": "b942dd0d00c5899fe2518462c0cfc1244c8aadf49e341093eb2c36621042e630",
+      "target": {
+        "url": "http://127.0.0.1/login",
+        "host": "127.0.0.1",
+        "path": "/login",
+        "method": "POST"
+      },
+      "evidenceCount": 1
+    },
+    {
+      "id": "fnd-d2c6809668d40573",
+      "ruleId": "insecure-cookie-flags",
+      "title": "Insecure Session Cookie: session (Missing HttpOnly, Missing SameSite)",
+      "severity": "MEDIUM",
+      "confidence": "CONFIRMED",
+      "fingerprint": "d2c6809668d405735302deedd240326b15cfa07dd3ad05a645a11c77998e5516",
+      "target": {
+        "url": "http://127.0.0.1/login",
+        "host": "127.0.0.1",
+        "path": "/login",
+        "method": "POST"
+      },
+      "evidenceCount": 1
+    },
+    {
+      "id": "fnd-1fbcc82c4abce53e",
+      "ruleId": "cors-origin-reflection",
+      "title": "Invalid/Permissive CORS: Wildcard Origin with Credentials",
+      "severity": "HIGH",
+      "confidence": "CONFIRMED",
+      "fingerprint": "1fbcc82c4abce53e716a0028f77337e51dd14c193d835d4e48b666f2d3baef61",
+      "target": {
+        "url": "http://127.0.0.1/.git/HEAD",
+        "host": "127.0.0.1",
+        "path": "/.git/HEAD",
+        "method": "GET"
+      },
+      "evidenceCount": 1
+    },
+    {
+      "id": "fnd-d90b1a6508023df1",
+      "ruleId": "insecure-cookie-flags",
+      "title": "Insecure Session Cookie: session (Missing HttpOnly, Missing SameSite)",
+      "severity": "MEDIUM",
+      "confidence": "CONFIRMED",
+      "fingerprint": "d90b1a6508023df16f6521c20393a029222af9009060c9a9152fe83a056ab374",
+      "target": {
+        "url": "http://127.0.0.1/.git/HEAD",
+        "host": "127.0.0.1",
+        "path": "/.git/HEAD",
+        "method": "GET"
+      },
+      "evidenceCount": 1
+    },
+    {
+      "id": "fnd-59f2e3e75ea0172a",
+      "ruleId": "debug-endpoint-exposure",
+      "title": "Exposed Git Repository (.git/HEAD)",
+      "severity": "HIGH",
+      "confidence": "CONFIRMED",
+      "fingerprint": "59f2e3e75ea0172ad3b70f0b2232debe38e039ff0f09289cd0d8fc37bf4021aa",
+      "target": {
+        "url": "http://127.0.0.1/.git/HEAD",
+        "host": "127.0.0.1",
+        "path": "/.git/HEAD",
+        "method": "GET"
+      },
+      "evidenceCount": 1
+    }
+  ],
+  "metrics": {
+    "durationMs": 24,
+    "requestsTotal": 1,
+    "endpointsDiscovered": 4
+  },
+  "reportsGenerated": [
+    "json",
+    "markdown",
+    "sarif",
+    "html"
+  ]
+}

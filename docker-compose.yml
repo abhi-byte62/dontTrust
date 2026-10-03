@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - NODE_ENV=production
+      - STORAGE_DIR=/app/data
+    volumes:
+      - scan_data:/app/data
+
+  web:
+    build: .
+    command: ["npm", "run", "dev", "-w", "@aegisscan/web", "--", "--host"]
+    ports:
+      - "5173:5173"
+    depends_on:
+      - api
+
+  lab:
+    build: .
+    command: ["npm", "run", "start", "-w", "@aegisscan/vulnerable-lab"]
+    ports:
+      - "8080:8080"
+
+volumes:
+  scan_data:

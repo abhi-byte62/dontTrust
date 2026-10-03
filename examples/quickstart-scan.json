@@ -1,0 +1,6 @@
+{
+  "targetUrl": "http://127.0.0.1:8080",
+  "activeTestingEnabled": true,
+  "maxRequestsPerSecond": 50,
+  "maxConcurrency": 10
+}
