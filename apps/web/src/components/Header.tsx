@@ -60,16 +60,16 @@ export const Header: React.FC<HeaderProps> = ({
       </div>
 
       <div className="flex items-center space-x-4">
-        {/* Clickable Scope / Guard Badge */}
         <button
           type="button"
           onClick={onOpenScopePolicy}
           title="View Scope Enforcement & SSRF Policy Details"
-          className="flex items-center space-x-2 px-2.5 py-1 bg-black border border-zinc-800 hover:border-zinc-500 text-[11px] text-zinc-400 hover:text-white font-mono transition-colors cursor-pointer"
+          className="flex items-center space-x-2 px-3 py-1 bg-black border border-zinc-800 hover:border-zinc-500 text-[11px] text-zinc-400 hover:text-white font-mono transition-colors cursor-pointer"
         >
           <Lock className="w-3 h-3 text-white" />
-          <span className="text-zinc-500 uppercase">GUARD:</span>
-          <span className="text-white font-semibold uppercase">[STRICT] SSRF ON</span>
+          <span className="text-zinc-500 uppercase">GUARD</span>
+          <span className="text-white font-semibold uppercase">[STRICT]</span>
+          <span className="text-zinc-300 uppercase">SSRF PROTECTION: ON</span>
         </button>
 
         <button
