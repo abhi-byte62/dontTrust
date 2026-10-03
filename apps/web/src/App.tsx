@@ -10,6 +10,7 @@ import { RulesView } from './components/RulesView.js';
 import { ReportsView } from './components/ReportsView.js';
 import { ScanLauncherModal } from './components/ScanLauncherModal.js';
 import { EvidenceModal } from './components/EvidenceModal.js';
+import { ScopePolicyModal } from './components/ScopePolicyModal.js';
 import { api } from './api.js';
 import { Project, Target, Scan, Finding, DiscoveredEndpoint, AttackSurfaceGraph, RuleMeta } from './types.js';
 
@@ -26,6 +27,7 @@ export const App: React.FC = () => {
   const [rules, setRules] = useState<RuleMeta[]>([]);
   const [selectedFinding, setSelectedFinding] = useState<Finding | null>(null);
   const [isLauncherOpen, setIsLauncherOpen] = useState<boolean>(false);
+  const [isScopePolicyOpen, setIsScopePolicyOpen] = useState<boolean>(false);
 
   // Load Initial Projects & Rules
   useEffect(() => {
@@ -166,6 +168,7 @@ export const App: React.FC = () => {
         onSelectProject={setSelectedProject}
         onOpenLauncher={() => setIsLauncherOpen(true)}
         onNavigateHome={() => setCurrentTab('dashboard')}
+        onOpenScopePolicy={() => setIsScopePolicyOpen(true)}
       />
 
       <div className="flex-1 flex overflow-hidden">
@@ -230,6 +233,11 @@ export const App: React.FC = () => {
       <EvidenceModal
         finding={selectedFinding}
         onClose={() => setSelectedFinding(null)}
+      />
+
+      <ScopePolicyModal
+        isOpen={isScopePolicyOpen}
+        onClose={() => setIsScopePolicyOpen(false)}
       />
     </div>
   );

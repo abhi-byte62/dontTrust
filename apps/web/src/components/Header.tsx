@@ -8,6 +8,7 @@ interface HeaderProps {
   onSelectProject: (p: Project) => void;
   onOpenLauncher: () => void;
   onNavigateHome: () => void;
+  onOpenScopePolicy: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -15,7 +16,8 @@ export const Header: React.FC<HeaderProps> = ({
   selectedProject,
   onSelectProject,
   onOpenLauncher,
-  onNavigateHome
+  onNavigateHome,
+  onOpenScopePolicy
 }) => {
   return (
     <header className="h-14 border-b border-zinc-800 bg-black px-6 flex items-center justify-between z-10 sticky top-0">
@@ -58,11 +60,17 @@ export const Header: React.FC<HeaderProps> = ({
       </div>
 
       <div className="flex items-center space-x-4">
-        <div className="flex items-center space-x-2 px-2.5 py-1 bg-black border border-zinc-800 text-[11px] text-zinc-400 font-mono">
+        {/* Clickable Scope / Guard Badge */}
+        <button
+          type="button"
+          onClick={onOpenScopePolicy}
+          title="View Scope Enforcement & SSRF Policy Details"
+          className="flex items-center space-x-2 px-2.5 py-1 bg-black border border-zinc-800 hover:border-zinc-500 text-[11px] text-zinc-400 hover:text-white font-mono transition-colors cursor-pointer"
+        >
           <Lock className="w-3 h-3 text-white" />
           <span className="text-zinc-500 uppercase">GUARD:</span>
-          <span className="text-white font-semibold uppercase">STRICT (SSRF ACTIVE)</span>
-        </div>
+          <span className="text-white font-semibold uppercase">[STRICT] SSRF ON</span>
+        </button>
 
         <button
           onClick={onOpenLauncher}
