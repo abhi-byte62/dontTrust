@@ -1,8 +1,8 @@
 {
   "scan": {
-    "id": "scan-00eb6742-8cac-4ae5-bb71-fcc8abb316ba",
-    "projectId": "proj-e0322b1a-19c6-44cb-8c3e-61b861ad3af9",
-    "targetId": "target-bed342c3-36c0-43ee-b024-4035a12600e3",
+    "id": "scan-67ec38d2-1098-4ceb-9108-59a3054e9225",
+    "projectId": "proj-44987aaa-bb1f-40b5-9ddb-b3f6440bd2c9",
+    "targetId": "target-7bac0e25-9bf9-45dd-bd13-032564dbb9a2",
     "targetUrl": "http://127.0.0.1:8082",
     "profileName": "STANDARD",
     "status": "COMPLETED",
@@ -23,11 +23,11 @@
       },
       "durationMs": 27
     },
-    "startedAt": "2026-10-03T07:04:18.367Z",
-    "completedAt": "2026-10-03T07:04:18.394Z"
+    "startedAt": "2026-10-03T07:12:52.125Z",
+    "completedAt": "2026-10-03T07:12:52.152Z"
   },
   "target": {
-    "id": "target-bed342c3-36c0-43ee-b024-4035a12600e3",
+    "id": "target-7bac0e25-9bf9-45dd-bd13-032564dbb9a2",
     "url": "http://127.0.0.1:8082",
     "host": "127.0.0.1",
     "port": 8082
@@ -35,21 +35,21 @@
   "discoveredEndpointsCount": 4,
   "endpoints": [
     {
-      "id": "c03bea3e-d866-4353-91b8-259218901de9",
-      "scanId": "scan-00eb6742-8cac-4ae5-bb71-fcc8abb316ba",
-      "projectId": "proj-e0322b1a-19c6-44cb-8c3e-61b861ad3af9",
+      "id": "9c260ffa-807a-46b9-b19d-aee49aa809fd",
+      "scanId": "scan-67ec38d2-1098-4ceb-9108-59a3054e9225",
+      "projectId": "proj-44987aaa-bb1f-40b5-9ddb-b3f6440bd2c9",
       "url": "http://127.0.0.1:8082",
       "path": "/",
       "method": "GET",
       "statusCode": 200,
       "contentType": "text/html; charset=utf-8",
       "parameters": [],
-      "discoveredAt": "2026-10-03T07:04:18.387Z"
+      "discoveredAt": "2026-10-03T07:12:52.146Z"
     },
     {
-      "id": "2ad1ac71-5ff1-4c73-9a57-a21676741b20",
-      "scanId": "scan-00eb6742-8cac-4ae5-bb71-fcc8abb316ba",
-      "projectId": "proj-e0322b1a-19c6-44cb-8c3e-61b861ad3af9",
+      "id": "5b630a9a-cc6e-4d0f-b391-3de00aa70894",
+      "scanId": "scan-67ec38d2-1098-4ceb-9108-59a3054e9225",
+      "projectId": "proj-44987aaa-bb1f-40b5-9ddb-b3f6440bd2c9",
       "url": "http://127.0.0.1:8082/api/v1/users",
       "path": "/api/v1/users",
       "method": "GET",
@@ -60,12 +60,12 @@
         "role",
         "search"
       ],
-      "discoveredAt": "2026-10-03T07:04:18.387Z"
+      "discoveredAt": "2026-10-03T07:12:52.146Z"
     },
     {
-      "id": "8863e470-7b98-40cf-8776-0ee26bca281b",
-      "scanId": "scan-00eb6742-8cac-4ae5-bb71-fcc8abb316ba",
-      "projectId": "proj-e0322b1a-19c6-44cb-8c3e-61b861ad3af9",
+      "id": "891a24ff-e74a-48e9-bb2c-e8c8925727a1",
+      "scanId": "scan-67ec38d2-1098-4ceb-9108-59a3054e9225",
+      "projectId": "proj-44987aaa-bb1f-40b5-9ddb-b3f6440bd2c9",
       "url": "http://127.0.0.1:8082/login",
       "path": "/login",
       "method": "POST",
@@ -75,19 +75,19 @@
         "username",
         "password"
       ],
-      "discoveredAt": "2026-10-03T07:04:18.387Z"
+      "discoveredAt": "2026-10-03T07:12:52.146Z"
     },
     {
-      "id": "6523f3e2-65a1-4156-acf0-0c242d4e9c84",
-      "scanId": "scan-00eb6742-8cac-4ae5-bb71-fcc8abb316ba",
-      "projectId": "proj-e0322b1a-19c6-44cb-8c3e-61b861ad3af9",
+      "id": "f6395e38-90b2-447e-b944-97c172d131b3",
+      "scanId": "scan-67ec38d2-1098-4ceb-9108-59a3054e9225",
+      "projectId": "proj-44987aaa-bb1f-40b5-9ddb-b3f6440bd2c9",
       "url": "http://127.0.0.1:8082/.git/HEAD",
       "path": "/.git/HEAD",
       "method": "GET",
       "statusCode": 200,
       "contentType": "text/plain",
       "parameters": [],
-      "discoveredAt": "2026-10-03T07:04:18.387Z"
+      "discoveredAt": "2026-10-03T07:12:52.146Z"
     }
   ],
   "attackSurfaceGraph": {
@@ -102,7 +102,7 @@
           "hostname": "127.0.0.1",
           "protocol": "http:"
         },
-        "discoveredAt": "2026-10-03T07:04:18.367Z"
+        "discoveredAt": "2026-10-03T07:12:52.126Z"
       },
       {
         "id": "node-service-8082",
@@ -111,7 +111,7 @@
         "data": {
           "port": "8082"
         },
-        "discoveredAt": "2026-10-03T07:04:18.367Z"
+        "discoveredAt": "2026-10-03T07:12:52.126Z"
       },
       {
         "id": "node-ep-GET-/",
@@ -122,7 +122,7 @@
           "path": "/",
           "params": []
         },
-        "discoveredAt": "2026-10-03T07:04:18.387Z"
+        "discoveredAt": "2026-10-03T07:12:52.146Z"
       },
       {
         "id": "node-ep-GET-/api/v1/users",
@@ -137,7 +137,7 @@
             "search"
           ]
         },
-        "discoveredAt": "2026-10-03T07:04:18.387Z"
+        "discoveredAt": "2026-10-03T07:12:52.146Z"
       },
       {
         "id": "node-ep-POST-/login",
@@ -151,7 +151,7 @@
             "password"
           ]
         },
-        "discoveredAt": "2026-10-03T07:04:18.387Z"
+        "discoveredAt": "2026-10-03T07:12:52.146Z"
       },
       {
         "id": "node-ep-GET-/.git/HEAD",
@@ -162,7 +162,7 @@
           "path": "/.git/HEAD",
           "params": []
         },
-        "discoveredAt": "2026-10-03T07:04:18.387Z"
+        "discoveredAt": "2026-10-03T07:12:52.146Z"
       },
       {
         "id": "node-finding-fnd-25ba3e172947f7cd",
@@ -173,7 +173,7 @@
           "confidence": "CONFIRMED",
           "ruleId": "missing-security-headers"
         },
-        "discoveredAt": "2026-10-03T07:04:18.388Z"
+        "discoveredAt": "2026-10-03T07:12:52.147Z"
       },
       {
         "id": "node-finding-fnd-dc2f01202799062c",
@@ -184,7 +184,7 @@
           "confidence": "CONFIRMED",
           "ruleId": "cors-origin-reflection"
         },
-        "discoveredAt": "2026-10-03T07:04:18.389Z"
+        "discoveredAt": "2026-10-03T07:12:52.147Z"
       },
       {
         "id": "node-finding-fnd-de943553f31885ff",
@@ -195,7 +195,7 @@
           "confidence": "CONFIRMED",
           "ruleId": "insecure-cookie-flags"
         },
-        "discoveredAt": "2026-10-03T07:04:18.389Z"
+        "discoveredAt": "2026-10-03T07:12:52.148Z"
       },
       {
         "id": "node-finding-fnd-1d8a20befafaaf70",
@@ -206,7 +206,7 @@
           "confidence": "CONFIRMED",
           "ruleId": "cors-origin-reflection"
         },
-        "discoveredAt": "2026-10-03T07:04:18.390Z"
+        "discoveredAt": "2026-10-03T07:12:52.149Z"
       },
       {
         "id": "node-finding-fnd-a9f5887ca94cec3b",
@@ -217,7 +217,7 @@
           "confidence": "CONFIRMED",
           "ruleId": "insecure-cookie-flags"
         },
-        "discoveredAt": "2026-10-03T07:04:18.390Z"
+        "discoveredAt": "2026-10-03T07:12:52.149Z"
       },
       {
         "id": "node-finding-fnd-83b7dbc974d84358",
@@ -228,7 +228,7 @@
           "confidence": "CONFIRMED",
           "ruleId": "missing-security-headers"
         },
-        "discoveredAt": "2026-10-03T07:04:18.391Z"
+        "discoveredAt": "2026-10-03T07:12:52.149Z"
       },
       {
         "id": "node-finding-fnd-b942dd0d00c5899f",
@@ -239,7 +239,7 @@
           "confidence": "CONFIRMED",
           "ruleId": "cors-origin-reflection"
         },
-        "discoveredAt": "2026-10-03T07:04:18.391Z"
+        "discoveredAt": "2026-10-03T07:12:52.149Z"
       },
       {
         "id": "node-finding-fnd-d2c6809668d40573",
@@ -250,7 +250,7 @@
           "confidence": "CONFIRMED",
           "ruleId": "insecure-cookie-flags"
         },
-        "discoveredAt": "2026-10-03T07:04:18.391Z"
+        "discoveredAt": "2026-10-03T07:12:52.149Z"
       },
       {
         "id": "node-finding-fnd-1fbcc82c4abce53e",
@@ -261,7 +261,7 @@
           "confidence": "CONFIRMED",
           "ruleId": "cors-origin-reflection"
         },
-        "discoveredAt": "2026-10-03T07:04:18.391Z"
+        "discoveredAt": "2026-10-03T07:12:52.149Z"
       },
       {
         "id": "node-finding-fnd-d90b1a6508023df1",
@@ -272,7 +272,7 @@
           "confidence": "CONFIRMED",
           "ruleId": "insecure-cookie-flags"
         },
-        "discoveredAt": "2026-10-03T07:04:18.391Z"
+        "discoveredAt": "2026-10-03T07:12:52.150Z"
       },
       {
         "id": "node-finding-fnd-59f2e3e75ea0172a",
@@ -283,7 +283,7 @@
           "confidence": "CONFIRMED",
           "ruleId": "debug-endpoint-exposure"
         },
-        "discoveredAt": "2026-10-03T07:04:18.391Z"
+        "discoveredAt": "2026-10-03T07:12:52.150Z"
       }
     ],
     "edges": [
