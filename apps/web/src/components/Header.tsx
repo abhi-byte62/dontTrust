@@ -7,18 +7,24 @@ interface HeaderProps {
   selectedProject: Project | null;
   onSelectProject: (p: Project) => void;
   onOpenLauncher: () => void;
+  onNavigateHome: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   projects,
   selectedProject,
   onSelectProject,
-  onOpenLauncher
+  onOpenLauncher,
+  onNavigateHome
 }) => {
   return (
     <header className="h-14 border-b border-zinc-800 bg-black px-6 flex items-center justify-between z-10 sticky top-0">
       <div className="flex items-center space-x-6">
-        <div className="flex items-center space-x-3">
+        <div
+          onClick={onNavigateHome}
+          className="flex items-center space-x-3 cursor-pointer hover:opacity-85 transition-opacity"
+          title="Return to Dashboard"
+        >
           <div className="w-7 h-7 bg-white text-black flex items-center justify-center font-black rounded-none">
             <Shield className="w-4 h-4 fill-black text-black" />
           </div>

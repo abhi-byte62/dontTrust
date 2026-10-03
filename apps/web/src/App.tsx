@@ -165,6 +165,7 @@ export const App: React.FC = () => {
         selectedProject={selectedProject}
         onSelectProject={setSelectedProject}
         onOpenLauncher={() => setIsLauncherOpen(true)}
+        onNavigateHome={() => setCurrentTab('dashboard')}
       />
 
       <div className="flex-1 flex overflow-hidden">
