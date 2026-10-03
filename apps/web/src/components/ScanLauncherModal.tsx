@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Zap, Play } from 'lucide-react';
+import { X, Zap, Play, Globe, ListFilter } from 'lucide-react';
 import { Target, Project } from '../types.js';
 
 interface ScanLauncherModalProps {
@@ -9,7 +9,8 @@ interface ScanLauncherModalProps {
   selectedProject: Project | null;
   onLaunch: (params: {
     projectId: string;
-    targetId: string;
+    targetId?: string;
+    customUrl?: string;
     profileName: string;
     activeTestingEnabled: boolean;
     maxRequestsPerSecond: number;
@@ -23,24 +24,49 @@ export const ScanLauncherModal: React.FC<ScanLauncherModalProps> = ({
   selectedProject,
   onLaunch
 }) => {
+  const [targetMode, setTargetMode] = useState<'custom' | 'existing'>('custom');
+  const [customUrl, setCustomUrl] = useState<string>('http://127.0.0.1:8080');
   const [selectedTargetId, setSelectedTargetId] = useState<string>(targets[0]?.id || '');
   const [profileName, setProfileName] = useState<string>('RESEARCH_LAB');
   const [activeTestingEnabled, setActiveTestingEnabled] = useState<boolean>(true);
   const [maxRequestsPerSecond, setMaxRequestsPerSecond] = useState<number>(10);
+  const [urlError, setUrlError] = useState<string>('');
 
   if (!isOpen) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!selectedProject || !selectedTargetId) return;
+    if (!selectedProject) return;
 
-    onLaunch({
-      projectId: selectedProject.id,
-      targetId: selectedTargetId,
-      profileName,
-      activeTestingEnabled,
-      maxRequestsPerSecond
-    });
+    if (targetMode === 'custom') {
+      if (!customUrl.trim()) {
+        setUrlError('Please enter a target URL');
+        return;
+      }
+      try {
+        new URL(customUrl.trim());
+      } catch {
+        setUrlError('Please enter a valid URL (e.g. http://127.0.0.1:8080 or https://example.com)');
+        return;
+      }
+      setUrlError('');
+      onLaunch({
+        projectId: selectedProject.id,
+        customUrl: customUrl.trim(),
+        profileName,
+        activeTestingEnabled,
+        maxRequestsPerSecond
+      });
+    } else {
+      if (!selectedTargetId) return;
+      onLaunch({
+        projectId: selectedProject.id,
+        targetId: selectedTargetId,
+        profileName,
+        activeTestingEnabled,
+        maxRequestsPerSecond
+      });
+    }
     onClose();
   };
 
@@ -58,18 +84,66 @@ export const ScanLauncherModal: React.FC<ScanLauncherModalProps> = ({
         </div>
 
         <form onSubmit={handleSubmit} className="mt-5 space-y-4 text-xs">
-          {/* Target Selection */}
+          {/* Target Mode Toggle */}
           <div>
-            <label className="block text-slate-300 font-medium mb-1.5">Authorized Target</label>
-            <select
-              value={selectedTargetId}
-              onChange={(e) => setSelectedTargetId(e.target.value)}
-              className="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-slate-200 font-mono focus:border-blue-500 focus:outline-none"
-            >
-              {targets.map(t => (
-                <option key={t.id} value={t.id}>{t.url} ({t.hostname})</option>
-              ))}
-            </select>
+            <div className="flex items-center justify-between mb-2">
+              <label className="block text-slate-300 font-medium">Target Selection</label>
+              <div className="flex bg-slate-900 border border-slate-800 rounded-md p-0.5">
+                <button
+                  type="button"
+                  onClick={() => setTargetMode('custom')}
+                  className={`flex items-center space-x-1 px-2.5 py-1 rounded text-[11px] font-medium transition-all ${
+                    targetMode === 'custom'
+                      ? 'bg-blue-600 text-white'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  <Globe className="w-3 h-3" />
+                  <span>Custom URL</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setTargetMode('existing')}
+                  className={`flex items-center space-x-1 px-2.5 py-1 rounded text-[11px] font-medium transition-all ${
+                    targetMode === 'existing'
+                      ? 'bg-blue-600 text-white'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  <ListFilter className="w-3 h-3" />
+                  <span>Existing Target</span>
+                </button>
+              </div>
+            </div>
+
+            {targetMode === 'custom' ? (
+              <div>
+                <input
+                  type="text"
+                  value={customUrl}
+                  onChange={(e) => {
+                    setCustomUrl(e.target.value);
+                    if (urlError) setUrlError('');
+                  }}
+                  placeholder="https://app.target.local or http://127.0.0.1:8080"
+                  className="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-slate-200 font-mono focus:border-blue-500 focus:outline-none placeholder-slate-600"
+                />
+                {urlError && <p className="text-red-400 text-[11px] mt-1">{urlError}</p>}
+                <p className="text-slate-500 text-[10px] mt-1">
+                  ScopeEngine and SSRF guard will automatically validate the domain boundaries for authorized testing.
+                </p>
+              </div>
+            ) : (
+              <select
+                value={selectedTargetId}
+                onChange={(e) => setSelectedTargetId(e.target.value)}
+                className="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-slate-200 font-mono focus:border-blue-500 focus:outline-none"
+              >
+                {targets.map(t => (
+                  <option key={t.id} value={t.id}>{t.url} ({t.hostname})</option>
+                ))}
+              </select>
+            )}
           </div>
 
           {/* Profile Selection */}

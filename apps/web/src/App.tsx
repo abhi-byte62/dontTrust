@@ -128,13 +128,28 @@ export const App: React.FC = () => {
 
   const handleLaunchScan = async (params: {
     projectId: string;
-    targetId: string;
+    targetId?: string;
+    customUrl?: string;
     profileName: string;
     activeTestingEnabled: boolean;
     maxRequestsPerSecond: number;
   }) => {
     try {
-      const newScan = await api.startScan(params);
+      let targetId = params.targetId;
+      if (params.customUrl) {
+        const createdTarget = await api.createTarget(params.projectId, params.customUrl);
+        targetId = createdTarget.id;
+        setTargets(prev => [...prev, createdTarget]);
+      }
+      if (!targetId) return;
+
+      const newScan = await api.startScan({
+        projectId: params.projectId,
+        targetId,
+        profileName: params.profileName,
+        activeTestingEnabled: params.activeTestingEnabled,
+        maxRequestsPerSecond: params.maxRequestsPerSecond
+      });
       setScans(prev => [newScan, ...prev]);
       setActiveScan(newScan);
       setCurrentTab('pipeline');
