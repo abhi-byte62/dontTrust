@@ -40,13 +40,13 @@ export const ScanLauncherModal: React.FC<ScanLauncherModalProps> = ({
 
     if (targetMode === 'custom') {
       if (!customUrl.trim()) {
-        setUrlError('Please enter a target URL');
+        setUrlError('PLEASE ENTER A TARGET URL');
         return;
       }
       try {
         new URL(customUrl.trim());
       } catch {
-        setUrlError('Please enter a valid URL (e.g. http://127.0.0.1:8080 or https://example.com)');
+        setUrlError('INVALID URL FORMAT (E.G. http://127.0.0.1:8080 OR https://target.local)');
         return;
       }
       setUrlError('');
@@ -71,47 +71,47 @@ export const ScanLauncherModal: React.FC<ScanLauncherModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-      <div className="w-full max-w-lg rounded-xl bg-[#0f172a] border border-slate-800 shadow-2xl p-6">
-        <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 font-mono">
+      <div className="w-full max-w-lg bg-black border border-zinc-800 shadow-2xl p-5">
+        <div className="flex items-center justify-between pb-3 border-b border-zinc-800">
           <div className="flex items-center space-x-2">
-            <Zap className="w-5 h-5 text-blue-400" />
-            <h3 className="text-base font-bold text-white font-mono">Launch Assessment</h3>
+            <Zap className="w-4 h-4 text-white" />
+            <h3 className="text-sm font-bold text-white uppercase tracking-wider">LAUNCH ASSESSMENT</h3>
           </div>
-          <button onClick={onClose} className="text-slate-400 hover:text-white cursor-pointer">
-            <X className="w-5 h-5" />
+          <button onClick={onClose} className="text-zinc-500 hover:text-white cursor-pointer">
+            <X className="w-4 h-4" />
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="mt-5 space-y-4 text-xs">
+        <form onSubmit={handleSubmit} className="mt-4 space-y-3.5 text-xs">
           {/* Target Mode Toggle */}
           <div>
-            <div className="flex items-center justify-between mb-2">
-              <label className="block text-slate-300 font-medium">Target Selection</label>
-              <div className="flex bg-slate-900 border border-slate-800 rounded-md p-0.5">
+            <div className="flex items-center justify-between mb-1.5">
+              <label className="text-[10px] text-zinc-500 uppercase tracking-wider">TARGET DESTINATION</label>
+              <div className="flex bg-zinc-950 border border-zinc-800 p-0.5">
                 <button
                   type="button"
                   onClick={() => setTargetMode('custom')}
-                  className={`flex items-center space-x-1 px-2.5 py-1 rounded text-[11px] font-medium transition-all ${
+                  className={`flex items-center space-x-1 px-2 py-0.5 text-[10px] uppercase font-bold transition-colors cursor-pointer ${
                     targetMode === 'custom'
-                      ? 'bg-blue-600 text-white'
-                      : 'text-slate-400 hover:text-slate-200'
+                      ? 'bg-white text-black'
+                      : 'text-zinc-400 hover:text-white'
                   }`}
                 >
-                  <Globe className="w-3 h-3" />
-                  <span>Custom URL</span>
+                  <Globe className="w-2.5 h-2.5" />
+                  <span>CUSTOM URL</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => setTargetMode('existing')}
-                  className={`flex items-center space-x-1 px-2.5 py-1 rounded text-[11px] font-medium transition-all ${
+                  className={`flex items-center space-x-1 px-2 py-0.5 text-[10px] uppercase font-bold transition-colors cursor-pointer ${
                     targetMode === 'existing'
-                      ? 'bg-blue-600 text-white'
-                      : 'text-slate-400 hover:text-slate-200'
+                      ? 'bg-white text-black'
+                      : 'text-zinc-400 hover:text-white'
                   }`}
                 >
-                  <ListFilter className="w-3 h-3" />
-                  <span>Existing Target</span>
+                  <ListFilter className="w-2.5 h-2.5" />
+                  <span>EXISTING</span>
                 </button>
               </div>
             </div>
@@ -125,22 +125,22 @@ export const ScanLauncherModal: React.FC<ScanLauncherModalProps> = ({
                     setCustomUrl(e.target.value);
                     if (urlError) setUrlError('');
                   }}
-                  placeholder="https://app.target.local or http://127.0.0.1:8080"
-                  className="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-slate-200 font-mono focus:border-blue-500 focus:outline-none placeholder-slate-600"
+                  placeholder="https://target.local or http://127.0.0.1:8080"
+                  className="w-full bg-black border border-zinc-800 p-2 text-white font-mono uppercase text-xs focus:border-white focus:outline-none placeholder-zinc-700"
                 />
-                {urlError && <p className="text-red-400 text-[11px] mt-1">{urlError}</p>}
-                <p className="text-slate-500 text-[10px] mt-1">
-                  ScopeEngine and SSRF guard will automatically validate the domain boundaries for authorized testing.
+                {urlError && <p className="text-white bg-zinc-900 border border-zinc-700 p-1 text-[10px] mt-1 uppercase font-bold">{urlError}</p>}
+                <p className="text-zinc-600 text-[9px] mt-1 uppercase">
+                  ScopeEngine validates network boundaries for authorized testing.
                 </p>
               </div>
             ) : (
               <select
                 value={selectedTargetId}
                 onChange={(e) => setSelectedTargetId(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-slate-200 font-mono focus:border-blue-500 focus:outline-none"
+                className="w-full bg-black border border-zinc-800 p-2 text-white font-mono text-xs focus:border-white focus:outline-none cursor-pointer"
               >
                 {targets.map(t => (
-                  <option key={t.id} value={t.id}>{t.url} ({t.hostname})</option>
+                  <option key={t.id} value={t.id} className="bg-black text-white">{t.url} ({t.hostname})</option>
                 ))}
               </select>
             )}
@@ -148,75 +148,74 @@ export const ScanLauncherModal: React.FC<ScanLauncherModalProps> = ({
 
           {/* Profile Selection */}
           <div>
-            <label className="block text-slate-300 font-medium mb-1.5">Scan Profile</label>
+            <label className="text-[10px] text-zinc-500 uppercase tracking-wider block mb-1.5">ASSESSMENT PROFILE</label>
             <div className="grid grid-cols-2 gap-2">
               {[
-                { id: 'RESEARCH_LAB', title: 'Research Lab', desc: 'Full recon, crawling & active verification' },
-                { id: 'PASSIVE', title: 'Passive Only', desc: 'Headers, TLS & passive intelligence' },
-                { id: 'QUICK', title: 'Quick Scan', desc: 'Fast surface mapping & light detection' },
-                { id: 'DEEP', title: 'Deep Audit', desc: 'Deep crawler with full rule suite' }
+                { id: 'RESEARCH_LAB', title: 'RESEARCH LAB', desc: 'Deep crawl, AST & canary verification' },
+                { id: 'PASSIVE', title: 'PASSIVE ONLY', desc: 'Headers, TLS & passive recon' },
+                { id: 'QUICK', title: 'QUICK SCAN', desc: 'Fast surface mapping & light checks' },
+                { id: 'DEEP', title: 'DEEP AUDIT', desc: 'Full crawler with active rule catalog' }
               ].map(p => (
                 <div
                   key={p.id}
                   onClick={() => setProfileName(p.id)}
-                  className={`p-2.5 rounded-lg border cursor-pointer transition-all ${
+                  className={`p-2.5 border cursor-pointer transition-colors ${
                     profileName === p.id
-                      ? 'bg-blue-600/15 border-blue-500 text-blue-400'
-                      : 'bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700'
+                      ? 'bg-white text-black border-white font-bold'
+                      : 'bg-zinc-950 border-zinc-900 text-zinc-400 hover:border-zinc-700'
                   }`}
                 >
-                  <div className="font-bold text-[11px] font-mono">{p.title}</div>
-                  <div className="text-[10px] text-slate-400 mt-0.5">{p.desc}</div>
+                  <div className="text-[11px] font-bold uppercase">{p.title}</div>
+                  <div className={`text-[9px] mt-0.5 uppercase ${profileName === p.id ? 'text-zinc-800' : 'text-zinc-500'}`}>{p.desc}</div>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Active Testing Confirmation */}
-          <div className="p-3 rounded-lg bg-slate-900/90 border border-slate-800 space-y-2">
-            <div className="flex items-center justify-between">
-              <div>
-                <span className="font-semibold text-slate-200 block">Active Verification Testing</span>
-                <span className="text-[11px] text-slate-400">Execute benign differential probes to verify findings</span>
-              </div>
-              <input
-                type="checkbox"
-                checked={activeTestingEnabled}
-                onChange={(e) => setActiveTestingEnabled(e.target.checked)}
-                className="w-4 h-4 rounded text-blue-600 focus:ring-0 cursor-pointer"
-              />
+          <div className="p-2.5 bg-zinc-950 border border-zinc-900 flex items-center justify-between">
+            <div>
+              <span className="font-bold text-white text-[11px] uppercase block">DIFFERENTIAL VERIFICATION</span>
+              <span className="text-[9px] text-zinc-500 uppercase">Execute benign canary probes</span>
             </div>
+            <input
+              type="checkbox"
+              checked={activeTestingEnabled}
+              onChange={(e) => setActiveTestingEnabled(e.target.checked)}
+              className="w-3.5 h-3.5 accent-white cursor-pointer"
+            />
           </div>
 
           {/* Rate Limiting */}
           <div>
-            <label className="block text-slate-300 font-medium mb-1.5">
-              Rate Limit Budget: <span className="text-blue-400 font-mono">{maxRequestsPerSecond} req/sec</span>
-            </label>
+            <div className="flex items-center justify-between text-[10px] uppercase text-zinc-500 mb-1">
+              <span>RATE LIMIT BUDGET</span>
+              <span className="text-white font-bold">{maxRequestsPerSecond} REQ/SEC</span>
+            </div>
             <input
               type="range"
               min="1"
               max="50"
               value={maxRequestsPerSecond}
               onChange={(e) => setMaxRequestsPerSecond(Number(e.target.value))}
-              className="w-full accent-blue-500 cursor-pointer"
+              className="w-full accent-white cursor-pointer"
             />
           </div>
 
-          <div className="pt-3 flex justify-end space-x-3">
+          <div className="pt-2 flex justify-end space-x-2">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium cursor-pointer"
+              className="px-3 py-1.5 bg-black border border-zinc-800 hover:border-zinc-600 text-zinc-300 uppercase tracking-wider text-xs font-bold cursor-pointer"
             >
-              Cancel
+              CANCEL
             </button>
             <button
               type="submit"
-              className="flex items-center space-x-2 px-5 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold cursor-pointer"
+              className="flex items-center space-x-1.5 px-4 py-1.5 bg-white hover:bg-zinc-200 text-black uppercase tracking-wider text-xs font-bold cursor-pointer transition-colors"
             >
-              <Play className="w-3.5 h-3.5 fill-current" />
-              <span>Start Assessment</span>
+              <Play className="w-3 h-3 fill-black text-black" />
+              <span>START ASSESSMENT</span>
             </button>
           </div>
         </form>

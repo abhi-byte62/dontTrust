@@ -159,7 +159,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#090d16] text-slate-100">
+    <div className="min-h-screen flex flex-col bg-black text-white selection:bg-white selection:text-black">
       <Header
         projects={projects}
         selectedProject={selectedProject}

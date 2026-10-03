@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-[#090d16] text-slate-100;
+    @apply bg-black text-white antialiased selection:bg-white selection:text-black;
   }
 }
 
@@ -12,21 +12,21 @@ code, pre, .font-mono {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Custom scrollbar */
+/* Custom crisp monochrome scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #090d16;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 3px;
+  background: #27272a;
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #52525b;
 }

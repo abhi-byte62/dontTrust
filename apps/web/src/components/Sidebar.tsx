@@ -19,20 +19,20 @@ interface SidebarProps {
 
 export const Sidebar: React.FC<SidebarProps> = ({ currentTab, onSelectTab, findingsCount }) => {
   const navItems: Array<{ id: TabType; label: string; icon: React.ReactNode; badge?: number }> = [
-    { id: 'dashboard', label: 'Dashboard', icon: <LayoutDashboard className="w-4 h-4" /> },
-    { id: 'pipeline', label: 'Live Pipeline', icon: <Activity className="w-4 h-4" /> },
-    { id: 'attack-surface', label: 'Attack Surface', icon: <Network className="w-4 h-4" /> },
-    { id: 'endpoints', label: 'Endpoints & APIs', icon: <Globe className="w-4 h-4" /> },
-    { id: 'findings', label: 'Findings & Evidence', icon: <AlertTriangle className="w-4 h-4" />, badge: findingsCount },
-    { id: 'rules', label: 'Detection Rules', icon: <BookOpen className="w-4 h-4" /> },
-    { id: 'reports', label: 'Export Reports', icon: <FileText className="w-4 h-4" /> }
+    { id: 'dashboard', label: 'Dashboard', icon: <LayoutDashboard className="w-3.5 h-3.5" /> },
+    { id: 'pipeline', label: 'Live Pipeline', icon: <Activity className="w-3.5 h-3.5" /> },
+    { id: 'attack-surface', label: 'Attack Surface', icon: <Network className="w-3.5 h-3.5" /> },
+    { id: 'endpoints', label: 'Endpoints & APIs', icon: <Globe className="w-3.5 h-3.5" /> },
+    { id: 'findings', label: 'Findings & Evidence', icon: <AlertTriangle className="w-3.5 h-3.5" />, badge: findingsCount },
+    { id: 'rules', label: 'Detection Rules', icon: <BookOpen className="w-3.5 h-3.5" /> },
+    { id: 'reports', label: 'Export Reports', icon: <FileText className="w-3.5 h-3.5" /> }
   ];
 
   return (
-    <aside className="w-64 border-r border-slate-800 bg-[#0b0f19] flex flex-col justify-between p-4">
-      <div className="space-y-1">
-        <div className="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 font-mono">
-          Platform Views
+    <aside className="w-60 border-r border-zinc-800 bg-black flex flex-col justify-between p-3 select-none">
+      <div className="space-y-0.5">
+        <div className="px-2.5 py-2 text-[10px] font-bold uppercase tracking-widest text-zinc-500 font-mono">
+          NAVIGATION
         </div>
         {navItems.map((item) => {
           const isActive = currentTab === item.id;
@@ -40,18 +40,20 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentTab, onSelectTab, findi
             <button
               key={item.id}
               onClick={() => onSelectTab(item.id)}
-              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-medium transition-all ${
+              className={`w-full flex items-center justify-between px-3 py-2 text-xs font-mono uppercase tracking-wider transition-colors cursor-pointer ${
                 isActive
-                  ? 'bg-blue-600/15 text-blue-400 border border-blue-500/30'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
+                  ? 'bg-white text-black font-bold'
+                  : 'text-zinc-400 hover:text-white hover:bg-zinc-900'
               }`}
             >
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-2.5">
                 {item.icon}
                 <span>{item.label}</span>
               </div>
               {item.badge !== undefined && item.badge > 0 && (
-                <span className="px-1.5 py-0.5 rounded text-[10px] font-mono bg-red-500/20 text-red-400 border border-red-500/30 font-semibold">
+                <span className={`px-1.5 py-0.2 text-[10px] font-mono font-bold ${
+                  isActive ? 'bg-black text-white' : 'bg-zinc-800 text-white'
+                }`}>
                   {item.badge}
                 </span>
               )}
@@ -60,14 +62,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentTab, onSelectTab, findi
         })}
       </div>
 
-      <div className="p-3 rounded-lg bg-slate-900/80 border border-slate-800 text-[11px] text-slate-400 space-y-1">
-        <div className="flex items-center justify-between font-mono">
-          <span>Engine Status</span>
-          <span className="text-emerald-400 font-bold">ONLINE</span>
+      <div className="p-3 bg-zinc-950 border border-zinc-800 text-[10px] font-mono text-zinc-400 space-y-1.5">
+        <div className="flex items-center justify-between">
+          <span className="text-zinc-500 uppercase tracking-wider">ENGINE</span>
+          <span className="text-white font-bold tracking-wider">[ ONLINE ]</span>
         </div>
-        <div className="flex items-center justify-between font-mono text-slate-400">
-          <span>Workers Active</span>
-          <span>4 Swarm</span>
+        <div className="flex items-center justify-between text-zinc-400">
+          <span className="text-zinc-500 uppercase tracking-wider">ORCHESTRATION</span>
+          <span className="text-zinc-300">4 WORKERS</span>
         </div>
       </div>
     </aside>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlertTriangle, Globe, Activity, CheckCircle2, Flame } from 'lucide-react';
+import { AlertTriangle, Globe, Activity, CheckCircle2, ShieldAlert } from 'lucide-react';
 import { Scan, Finding } from '../types.js';
 
 interface DashboardViewProps {
@@ -24,124 +24,124 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
   return (
     <div className="space-y-6">
-      {/* Top Telemetry Metric Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="p-4 rounded-xl bg-[#0f172a] border border-slate-800 flex items-center justify-between">
+      {/* Top Metric Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+        <div className="p-4 bg-black border border-zinc-800 flex items-center justify-between">
           <div>
-            <p className="text-xs text-slate-400 font-medium">Critical Findings</p>
-            <h3 className="text-2xl font-bold font-mono text-red-500 mt-1">{criticalCount}</h3>
-            <p className="text-[11px] text-red-400/80 mt-1">Requires immediate remediation</p>
+            <p className="text-[10px] font-mono uppercase tracking-widest text-zinc-500">CRITICAL FINDINGS</p>
+            <h3 className="text-2xl font-bold font-mono text-white mt-1">{criticalCount}</h3>
+            <p className="text-[10px] font-mono text-zinc-400 mt-1 uppercase">IMMEDIATE ACTION</p>
           </div>
-          <div className="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center">
-            <Flame className="w-5 h-5 text-red-400" />
+          <div className="w-8 h-8 bg-white text-black flex items-center justify-center font-mono font-bold">
+            <ShieldAlert className="w-4 h-4 text-black" />
           </div>
         </div>
 
-        <div className="p-4 rounded-xl bg-[#0f172a] border border-slate-800 flex items-center justify-between">
+        <div className="p-4 bg-black border border-zinc-800 flex items-center justify-between">
           <div>
-            <p className="text-xs text-slate-400 font-medium">High Severity</p>
-            <h3 className="text-2xl font-bold font-mono text-orange-400 mt-1">{highCount}</h3>
-            <p className="text-[11px] text-orange-400/80 mt-1">High exploitability impact</p>
+            <p className="text-[10px] font-mono uppercase tracking-widest text-zinc-500">HIGH SEVERITY</p>
+            <h3 className="text-2xl font-bold font-mono text-white mt-1">{highCount}</h3>
+            <p className="text-[10px] font-mono text-zinc-400 mt-1 uppercase">EXPLOITABLE PATHS</p>
           </div>
-          <div className="w-10 h-10 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
-            <AlertTriangle className="w-5 h-5 text-orange-400" />
+          <div className="w-8 h-8 border border-zinc-700 bg-zinc-950 flex items-center justify-center font-mono">
+            <AlertTriangle className="w-4 h-4 text-white" />
           </div>
         </div>
 
-        <div className="p-4 rounded-xl bg-[#0f172a] border border-slate-800 flex items-center justify-between">
+        <div className="p-4 bg-black border border-zinc-800 flex items-center justify-between">
           <div>
-            <p className="text-xs text-slate-400 font-medium">Discovered Endpoints</p>
-            <h3 className="text-2xl font-bold font-mono text-blue-400 mt-1">
+            <p className="text-[10px] font-mono uppercase tracking-widest text-zinc-500">DISCOVERED ENDPOINTS</p>
+            <h3 className="text-2xl font-bold font-mono text-white mt-1">
               {activeScan?.stats?.endpointsDiscovered || 0}
             </h3>
-            <p className="text-[11px] text-blue-400/80 mt-1">Mapped attack surface</p>
+            <p className="text-[10px] font-mono text-zinc-400 mt-1 uppercase">ATTACK SURFACE NODES</p>
           </div>
-          <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
-            <Globe className="w-5 h-5 text-blue-400" />
+          <div className="w-8 h-8 border border-zinc-700 bg-zinc-950 flex items-center justify-center font-mono">
+            <Globe className="w-4 h-4 text-white" />
           </div>
         </div>
 
-        <div className="p-4 rounded-xl bg-[#0f172a] border border-slate-800 flex items-center justify-between">
+        <div className="p-4 bg-black border border-zinc-800 flex items-center justify-between">
           <div>
-            <p className="text-xs text-slate-400 font-medium">Assessments Completed</p>
-            <h3 className="text-2xl font-bold font-mono text-emerald-400 mt-1">
+            <p className="text-[10px] font-mono uppercase tracking-widest text-zinc-500">ASSESSMENTS COMPLETED</p>
+            <h3 className="text-2xl font-bold font-mono text-white mt-1">
               {scans.filter(s => s.status === 'COMPLETED').length}
             </h3>
-            <p className="text-[11px] text-emerald-400/80 mt-1">Full evidence verified</p>
+            <p className="text-[10px] font-mono text-zinc-400 mt-1 uppercase">DETERMINISTIC PROOFS</p>
           </div>
-          <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
-            <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+          <div className="w-8 h-8 border border-zinc-700 bg-zinc-950 flex items-center justify-center font-mono">
+            <CheckCircle2 className="w-4 h-4 text-white" />
           </div>
         </div>
       </div>
 
       {/* Active Assessment Banner */}
       {activeScan && activeScan.status !== 'COMPLETED' && (
-        <div className="p-4 rounded-xl bg-blue-950/40 border border-blue-500/30 flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <div className="w-3 h-3 rounded-full bg-blue-500 animate-ping" />
+        <div className="p-4 bg-zinc-950 border border-zinc-800 flex items-center justify-between font-mono">
+          <div className="flex items-center space-x-3">
+            <div className="w-2 h-2 bg-white animate-ping" />
             <div>
-              <div className="flex items-center space-x-2">
-                <span className="text-xs font-mono font-bold text-blue-400">ACTIVE SCAN IN PROGRESS:</span>
-                <span className="text-xs font-mono text-white">{activeScan.targetUrl}</span>
+              <div className="flex items-center space-x-2 text-xs">
+                <span className="font-bold text-white uppercase tracking-wider">ACTIVE SCAN:</span>
+                <span className="text-zinc-300">{activeScan.targetUrl}</span>
               </div>
-              <p className="text-xs text-slate-400 mt-0.5">
-                Current Stage: <span className="text-blue-300 font-mono font-semibold">{activeScan.status}</span> |
-                Profile: <span className="text-slate-300 font-mono">{activeScan.profileName}</span>
+              <p className="text-[10px] text-zinc-500 mt-0.5 uppercase tracking-wider">
+                STAGE: <span className="text-white font-semibold">{activeScan.status}</span> |
+                PROFILE: <span className="text-zinc-300">{activeScan.profileName}</span>
               </p>
             </div>
           </div>
 
           <button
             onClick={onNavigateToPipeline}
-            className="px-3 py-1.5 rounded bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium cursor-pointer"
+            className="px-3 py-1 bg-white hover:bg-zinc-200 text-black text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
           >
-            View Live Stream
+            LIVE PIPELINE
           </button>
         </div>
       )}
 
-      {/* Two-Column Grid: Recent Scans & High Impact Findings */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Recent Scans Table */}
-        <div className="p-5 rounded-xl bg-[#0f172a] border border-slate-800">
-          <div className="flex items-center justify-between mb-4">
-            <h4 className="text-sm font-bold text-white font-mono flex items-center space-x-2">
-              <Activity className="w-4 h-4 text-blue-400" />
-              <span>Assessment History</span>
+      {/* Two-Column Grid: Assessment History & Prioritized Findings */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 font-mono">
+        {/* Recent Scans */}
+        <div className="p-4 bg-black border border-zinc-800">
+          <div className="flex items-center justify-between pb-3 mb-3 border-b border-zinc-800">
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider flex items-center space-x-2">
+              <Activity className="w-3.5 h-3.5 text-white" />
+              <span>ASSESSMENT HISTORY</span>
             </h4>
-            <span className="text-xs text-slate-400">{scans.length} Scans Run</span>
+            <span className="text-[10px] text-zinc-500">{scans.length} SCANS</span>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
-              <thead className="text-slate-400 uppercase font-mono border-b border-slate-800 text-[10px]">
+              <thead className="text-zinc-500 uppercase text-[10px] border-b border-zinc-900">
                 <tr>
-                  <th className="py-2.5">Target</th>
-                  <th className="py-2.5">Profile</th>
-                  <th className="py-2.5">Status</th>
-                  <th className="py-2.5 text-right">Findings</th>
+                  <th className="py-2">TARGET</th>
+                  <th className="py-2">PROFILE</th>
+                  <th className="py-2">STATUS</th>
+                  <th className="py-2 text-right">FINDINGS</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60 font-mono">
+              <tbody className="divide-y divide-zinc-900 text-[11px]">
                 {scans.slice(0, 5).map((scan) => (
                   <tr
                     key={scan.id}
                     onClick={() => onSelectScan(scan)}
-                    className="hover:bg-slate-800/40 cursor-pointer transition-colors"
+                    className="hover:bg-zinc-950 cursor-pointer transition-colors"
                   >
-                    <td className="py-3 font-medium text-slate-200">{scan.targetUrl}</td>
-                    <td className="py-3 text-slate-400">{scan.profileName}</td>
-                    <td className="py-3">
-                      <span className={`px-2 py-0.5 rounded text-[10px] font-semibold ${
-                        scan.status === 'COMPLETED' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' :
-                        scan.status === 'FAILED' ? 'bg-red-500/10 text-red-400 border border-red-500/20' :
-                        'bg-blue-500/10 text-blue-400 border border-blue-500/20 animate-pulse'
+                    <td className="py-2.5 font-medium text-white truncate max-w-[140px]">{scan.targetUrl}</td>
+                    <td className="py-2.5 text-zinc-400">{scan.profileName}</td>
+                    <td className="py-2.5">
+                      <span className={`px-1.5 py-0.2 text-[9px] uppercase font-bold tracking-wider ${
+                        scan.status === 'COMPLETED' ? 'bg-white text-black' :
+                        scan.status === 'FAILED' ? 'border border-zinc-700 text-zinc-400' :
+                        'bg-zinc-800 text-white animate-pulse'
                       }`}>
                         {scan.status}
                       </span>
                     </td>
-                    <td className="py-3 text-right text-slate-300">
+                    <td className="py-2.5 text-right text-white font-bold">
                       {(scan.stats?.findingsCount?.critical || 0) +
                        (scan.stats?.findingsCount?.high || 0) +
                        (scan.stats?.findingsCount?.medium || 0) +
@@ -155,40 +155,40 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         </div>
 
         {/* High Priority Findings */}
-        <div className="p-5 rounded-xl bg-[#0f172a] border border-slate-800">
-          <div className="flex items-center justify-between mb-4">
-            <h4 className="text-sm font-bold text-white font-mono flex items-center space-x-2">
-              <AlertTriangle className="w-4 h-4 text-orange-400" />
-              <span>Prioritized Security Findings</span>
+        <div className="p-4 bg-black border border-zinc-800">
+          <div className="flex items-center justify-between pb-3 mb-3 border-b border-zinc-800">
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider flex items-center space-x-2">
+              <AlertTriangle className="w-3.5 h-3.5 text-white" />
+              <span>SECURITY FINDINGS</span>
             </h4>
             <button
               onClick={onNavigateToFindings}
-              className="text-xs text-blue-400 hover:text-blue-300 cursor-pointer"
+              className="text-[10px] text-zinc-400 hover:text-white uppercase tracking-wider cursor-pointer underline"
             >
-              View All
+              VIEW ALL ({findings.length})
             </button>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-2">
             {findings.slice(0, 4).map((f) => (
               <div
                 key={f.id}
-                className="p-3 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition-colors"
+                className="p-2.5 bg-zinc-950 border border-zinc-900 hover:border-zinc-700 transition-colors"
               >
-                <div className="flex items-center justify-between">
-                  <span className={`px-1.5 py-0.5 rounded text-[10px] font-mono font-bold ${
-                    f.severity === 'CRITICAL' ? 'bg-red-500/20 text-red-400 border border-red-500/30' :
-                    f.severity === 'HIGH' ? 'bg-orange-500/20 text-orange-400 border border-orange-500/30' :
-                    'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
+                <div className="flex items-center justify-between text-[10px]">
+                  <span className={`px-1.5 py-0.2 font-bold uppercase tracking-wider ${
+                    f.severity === 'CRITICAL' ? 'bg-white text-black font-black' :
+                    f.severity === 'HIGH' ? 'bg-zinc-800 text-white' :
+                    'border border-zinc-800 text-zinc-300'
                   }`}>
                     {f.severity}
                   </span>
-                  <span className="text-[10px] font-mono text-slate-400">
-                    Confidence: <span className="text-emerald-400 font-semibold">{f.confidence}</span>
+                  <span className="text-zinc-500 uppercase">
+                    CONFIDENCE: <span className="text-white">{f.confidence}</span>
                   </span>
                 </div>
-                <h5 className="text-xs font-semibold text-slate-100 mt-1.5">{f.title}</h5>
-                <p className="text-[11px] font-mono text-slate-400 mt-1">
+                <h5 className="text-xs font-semibold text-white mt-1">{f.title}</h5>
+                <p className="text-[10px] text-zinc-500 mt-0.5 font-mono">
                   {f.httpMethod} {f.endpointPath}
                 </p>
               </div>
